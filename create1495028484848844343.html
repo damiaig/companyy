@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="create.css" rel="stylesheet">
+    <title>Create User</title>
+</head>
+<body>
+    <div class="loader-overlay" style="display: none;">
+        <div class="loader"></div>
+        <p class="yet-load">Hasn't yet loaded?</p>
+        <a class="Reload-page">Reload page</a>
+    </div>
+    <div class="container">
+        <label class="theme-toggle">
+                  
+            <input type="checkbox" id="theme-switch">
+            <span class="slider round"></span>
+        </label>
+        <span class="close">&times;</span>
+        <main>
+            <form id="create-user-form">
+                <h1>Create An Account</h1>
+                <input type="text"  id="name-input" max="18" class="name" required placeholder="Name">
+                <input type="email" class="email" required placeholder="Email">
+                <input type="text" class="password" required placeholder="Password">
+                <label for="role">User Role:</label>
+                <select class="role" id="role" required style="border-radius: 50px; appearance: none; -webkit-appearance: none; -moz-appearance: none; padding: 10px;">
+                    <option value="employee">Employee</option>
+                    <option value="sub-admin">Sub-Admin</option>
+                    <option value="admin">Admin</option>
+                </select>
+                <button type="submit">Create</button>
+            </form>
+            <div id="message"></div>
+        </main>
+    </div>
+
+    <!-- Ensure this script is declared as a module -->
+    <script type="module" src="firebaseauth.js" defer></script>
+    <script src="live-reload.js" defer></script>
+    <script type="module" src="create.js" defer></script> <!-- Add type="module" here -->
+</body>
+</html>
+
+

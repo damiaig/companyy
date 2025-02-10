@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="meetings.css">
+    <title>Meetings</title>
+</head>
+
+<body>
+    <div class="loader-overlay" style="display: none;">
+        <div class="loader"></div>
+        <p class="yet-load">Hasn't yet loaded?</p>
+        <a class="Reload-page">Reload page</a>
+    </div>
+    <span class="close">&times;</span>
+
+    <label class="theme-toggle">
+                  
+        <input type="checkbox" id="theme-switch">
+        <span class="slider round"></span>
+    </label>
+        <h1 class="h1"> MEETING PAGE</h1>
+ <div class="page-flex-box">
+    <div class="start-meeting box1">
+        <p class="tit">Choose The Members You Want In The Meeting</h1>
+
+            <div class="search">
+                <input type="search" class="search-bar" placeholder="Search for users...">
+              
+              </div>
+              <div class="search-result-container">
+                <div id="search-result" class="search-result"></div>
+              </div>
+
+              <div class="div">
+              <h1 class="selected-name">Selected Users</h1>
+              <div id="selected-users" style="display: none;">
+                
+              <div id="selected-users-container" class="selected-users-container"  >
+         
+            </div>
+        </div>
+    </div>
+<div class="name-container"> 
+              <label class="meeting-label">Meeting name:</label>
+              
+              <input type="name" class="name-meeting" max="18" placeholder="Give your meeting a name...">
+            </div>
+              <div class="action-buttons marg">
+ 
+
+                <button class="continue act-but">Continue</button>
+                <button class="cancel act-but">Cancel</button>
+              </div>
+    </div> 
+    
+    <div class="pending-meeting box1">
+        <p class="tit">Pending Meetings...</p>
+        <div class="pending-list">
+    
+            <!-- First Meeting -->
+         
+    
+    
+        </div>
+    </div>
+    
+            </div>
+ 
+
+        <div id="modal-container" class="modal-container hidden"></div>
+
+        <div id="diiiv" class="diiiv"></div>
+
+            <script src="https://unpkg.com/@daily-co/daily-js" defer></script>
+
+ <script type="module" src="meetings.js" defer></script>
+</body>
+</html>

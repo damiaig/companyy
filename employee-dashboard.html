@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="employee.css" rel="stylesheet">
+    <title>EMPLOYEE PAGE</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="profile">
+
+                <label class="theme-toggle">
+                  
+                    <input type="checkbox" id="theme-switch">
+                    <span class="slider round"></span>
+                </label>
+                <div class="profile-pic">
+                    <img id="employee-profile-picture" src="user_profile_-removebg-preview.png" alt="Profile Picture" class="profile-picture">
+                </div>
+                <div class="text-profile">
+                    <h1 class="name" id="employee-profile-name">Loren Ipsudum</h1>
+                    <p id="employee-profile-role">Job position (........)</p>
+                </div>
+            </div>
+        </header>
+   
+        <div class="main">
+            <div class="button-grid">
+                <button class="user-buttons employee-profile-settings">
+                    <h1>Profile Settings</h1>
+                    <p>Profile picture,<br> password,...</p>
+                </button>
+                <button class="user-buttons" id="employee-meetings" >
+                    <span class="unread-group-counter" style="display:none"></span>
+                    <h1>Meetings</h1>
+                    <p>Host and schedule<br> meetings</p>
+                </button>
+
+                <button class="user-buttons"   id="employee-messages-button" onclick="window.location.href='messages.html'">
+                    <span class="unread-counter" style="display:none"></span>
+                    <h1>Messaging</h1>
+                    <p>Message employees<br> and sub-admins</p>
+                </button>
+                <button class="user-buttons" id="employee-logout-button">
+                    <h1>Logout</h1>
+                    <p>Log out of your account</p>
+                </button>
+            </div>
+        </div>
+
+        <!-- Profile Settings Modal -->
+        <div id="modal-employee-profile-setting" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Profile Settings</h2>
+                <form id="employee-profile-form">
+                    <!-- Profile Picture Input -->
+                    <label for="employee-profile-picture-input">Change Profile Picture:</label>
+                    <div class="file-upload-wrapper">
+                        <span class="upload-trigger">+</span>
+                    <input type="file" id="employee-profile-picture-input" accept="image/*" hidden>
+                    </div>
+                    <br><br>
+                    <!-- Profile Name Input -->
+                    <label for="employee-name-input" maxlength="20">Change Profile Name:</label>
+                    <input type="text" max="18" id="employee-name-input" placeholder="Enter new name">
+                    <br><br>
+
+                    <!-- Preview Section -->
+                    <h3>Preview</h3>
+                    <div class="preview-container">
+                        <img id="employee-profile-preview-picture" src="user_profile_-removebg-preview.png" alt="Profile Preview" class="profile-picture">
+                        <h4 id="employee-profile-preview-name">Loren Ipsudum</h4>
+                    </div>
+                    <br><br>
+
+                    <button class="submit" type="submit">Save Changes</button>
+                </form>
+            </div>
+        </div>
+        <div class="announcement-page">
+            <div class="post-von"><span class="post-buting" style="cursor: pointer;">+</span>
+            <p>Post</p>
+            </div>
+                <div class="post">
+               
+        
+
+        </div>
+            </div>
+
+
+  <!-- Modal -->
+  <div id="post-modal" class="modalll">
+    <div class="modalll-content">
+      <span class="close-button" >&times;</span>
+      <!-- Buttons to choose post type -->
+      <div id="button-section">
+        <button class="post-with-image-button">Post with Image</button>
+        <button class="post-without-image-button" >Post without Image</button>
+      </div>
+      <!-- Sections for post types -->
+      <div id="post-with-image" class="post-section" style="display: none;">
+        <span class="go-back-button">
+          <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="black">
+            <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z" />
+          </svg>
+        </span>
+        <input class="import-input" type="file" accept="image/*" hidden id="image-input">
+        <div class="import-button" id="trigger-file-input">Select an image</div>
+        <div class="post-pic-select">
+          <img id="image-select" src=""  class="image-select" >
+          <span class="jjjjjj">SELECT AN IMAGE</span>
+        </div>
+        <div class="descrip">
+          <span class="tit">Description:</span>
+          <textarea id="post-with-image-description" class="post-descrip" maxlength="200" placeholder="Type your description (max 200 characters)"></textarea>
+        </div>
+        <button class="posttt">Post</button>
+      </div>
+      
+      
+      <div id="post-without-image" class="post-section" style="display: none;">
+        <span class="go-back-button">
+          <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="black">
+            <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z" />
+          </svg>
+        </span>
+        <div class="descrip-without-title">
+      
+          <p class="tit-post">
+            <p class="toto">Title:</p>
+            <textarea id="title-text" class="title-text" maxlength="22" placeholder="(max 22 characters)"></textarea>
+          </p>
+        </div>
+        <div class="descrip-without">
+          <span class="tit-without">Description:</span>
+          <textarea id="post-without-image-description" class="post-without-descrip" maxlength="550" placeholder="(max 550 characters)"></textarea>
+        </div>
+        <button class="posttt">Post</button>
+      </div>
+      
+    </div>
+  </div>
+</div>
+<div class="comment-modal " id="commentModal">
+
+  <div class="comment-modal-content">
+    <span >
+      <svg class="close-comment-button" xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="black">
+        <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z" />
+      </svg>
+    </span>
+    <div class="hq">Comments</div>
+   <div class="comment-list">
+
+   </div>
+<textarea maxlength="145" class="comment-input" placeholder="Share a comment"></textarea>
+<span class="send-comment"><svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px" fill="white"><path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z"/></svg></span>
+  </div>
+</div>
+
+    <!-- Include Firebase and your custom scripts -->
+    <script type="module" src="employee.js" defer></script>
+    <script>// Logout and redirect to index.html
+        const logoutButton = document.getElementById("employee-logout-button");
+        
+        logoutButton.addEventListener("click", function () {
+            // Clear sessionStorage to remove all stored data
+            sessionStorage.clear();
+        
+            // Redirect to index.html
+            window.location.href = "index.html";
+        });
+        
+        </script>
+         <script src="live-reload.js" defer></script>
+</body>
+</html>
