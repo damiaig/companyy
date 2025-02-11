@@ -9,15 +9,7 @@ const db = getFirestore();
 document.querySelector('.close').addEventListener('click', function() {
     history.back();
 });
-window.addEventListener("load", async function () {
-    if (!sessionStorage.getItem("userId")) {
-        alert("Please log in to access this page.");
-        window.location.href = "index.html";
 
-
-            // Load the user's inbox
-
-    }
 // Function to open modals
 function openModal(modalClass) {
     document.querySelector(modalClass).style.display = 'flex';
