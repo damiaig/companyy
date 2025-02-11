@@ -78,7 +78,7 @@ if (!sessionStorage.getItem("userId")) {
 
         if (savedRole) {
             const roleElement = document.getElementById("employee-profile-role");
-            roleElement.textContent = `Job position: ${savedRole}`;
+            roleElement.textContent = `User role: ${savedRole}`;
         } else {
             console.warn("Role not found in user data.");
         }
