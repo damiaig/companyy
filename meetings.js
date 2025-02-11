@@ -5,15 +5,6 @@ import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/
 
 const firestore = getFirestore();
 const auth = getAuth();
-window.addEventListener("load", async function () {
-    if (!sessionStorage.getItem("userId")) {
-        alert("Please log in to access this page.");
-        window.location.href = "index.html";
-
-
-            // Load the user's inbox
-
-    }
 
 let currentUserID = sessionStorage.getItem("userId"); // Ensure "userId" is the key under which it's stored
 console.log(currentUserID);
