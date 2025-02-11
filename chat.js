@@ -25,15 +25,6 @@ let currentChatUserId; // To keep track of the selected chat user
 let isInboxLoaded = false; // Flag to track inbox loading
 const auth = getAuth();
 
-window.addEventListener("load", async function () {
-    if (!sessionStorage.getItem("userId")) {
-        alert("Please log in to access this page.");
-        window.location.href = "index.html";
-
-
-            // Load the user's inbox
-
-    }
 
 // Set chatbox and search results to be hidden by default
 document.addEventListener('DOMContentLoaded', () => {
