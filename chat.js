@@ -1720,6 +1720,14 @@ messageInput.addEventListener('input', () => {
 
 
 
+window.addEventListener("load", async function () {
+    // Redirect to index.html if sessionStorage is empty
+  // Redirect to index.html if userId is not found in sessionStorage
+// Check if userId is missing from sessionStorage
+if (!sessionStorage.getItem("userId")) {
+    alert("Please log in to access this page."); // Show alert message
+    window.location.href = "index.html"; // Redirect to login page
+}})
 
 
 // Send text message
