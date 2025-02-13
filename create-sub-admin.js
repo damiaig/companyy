@@ -75,22 +75,25 @@ async function saveThemeToFirestore(theme) {
 
 // Load the theme from Firestore
 async function loadThemeFromFirestore() {
-    if (!userId) return;
-    try {
-        const docRef = doc(db, "users", userId);
-        const docSnap = await getDoc(docRef);
-        if (docSnap.exists()) {
-            const { theme } = docSnap.data();
-            if (theme) {
-                applyTheme(theme);
-                themeSwitch.checked = theme === "light"; // Sync switch state
-            }
-        } else {
-            console.warn("No theme data found in Firestore. Using default theme.");
-        }
-    } catch (error) {
-        console.error("Error loading theme from Firestore:", error);
-    }
+  if (!userId) return;
+  try {
+      const docRef = doc(db, "users", userId);
+      const docSnap = await getDoc(docRef);
+      if (docSnap.exists()) {
+          const { theme } = docSnap.data();
+          if (theme) {
+              applyTheme(theme);
+              themeSwitch.checked = theme === "light"; // Sync switch state
+          }
+      } else {
+          console.warn("No theme data found in Firestore. Using default theme.");
+      }
+  } catch (error) {
+      console.error("Error loading theme from Firestore:", error);
+  } finally {
+      // Hide the loader after the theme is applied
+      document.querySelector(".loader-overlay").style.display = "none";
+  }
 }
 
 // Event listener for theme toggle
