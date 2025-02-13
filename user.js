@@ -16,6 +16,7 @@ if (uploadTrigger && fileInput) {
 }
 
 
+
 // Get modal element and button
 const modal = document.getElementById("modal-profile-setting");
 const profileSettingsBtn = document.querySelector(".profile-settings");
@@ -28,7 +29,7 @@ let userData = JSON.parse(sessionStorage.getItem('userData'));
 // Elements for live preview
 const profilePreviewPicture = document.getElementById("profile-preview-picture");
 const profilePreviewName = document.getElementById("profile-preview-name");
-
+const myUserId = userData.id;
 // Load saved profile data from Firestore
 window.addEventListener("load", async function () {
     if (!sessionStorage.getItem("userId")) {
@@ -938,7 +939,7 @@ if (postElement) console.log("Post ID:", postElement.getAttribute("data-id"));
           const likeCount = likeCountArray.length;
     
           // Assuming you have the current user's ID
-          const currentUserId = userData.id; // Replace with the actual logged-in user's ID
+          const currentUserId = myUserId; // Replace with the actual logged-in user's ID
           const userLiked = likeCountArray.includes(currentUserId);
     
           const postElement = document.querySelector(`[data-id="${postId}"]`);
