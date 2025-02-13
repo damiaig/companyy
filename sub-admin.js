@@ -18,7 +18,7 @@ let userData = JSON.parse(sessionStorage.getItem('userData'));
 // Elements for live preview
 const profilePreviewPicture = document.getElementById("employee-profile-preview-picture");
 const profilePreviewName = document.getElementById("employee-profile-preview-name");
-
+const myUserId = userData.id;
 // Load saved profile data from Firestore
 window.addEventListener("load", async function () {
     // Redirect to index.html if sessionStorage is empty
@@ -929,7 +929,7 @@ if (postElement) console.log("Post ID:", postElement.getAttribute("data-id"));
           const likeCount = likeCountArray.length;
     
           // Assuming you have the current user's ID
-          const currentUserId = userData.id; // Replace with the actual logged-in user's ID
+          const currentUserId = myUserId; // Replace with the actual logged-in user's ID
           const userLiked = likeCountArray.includes(currentUserId);
     
           const postElement = document.querySelector(`[data-id="${postId}"]`);
