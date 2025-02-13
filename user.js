@@ -83,7 +83,7 @@ window.addEventListener("load", async function () {
 
         if (savedRole) {
             const roleElement = document.querySelector('.text-profile p');
-            if (roleElement) roleElement.textContent = `Job position: ${savedRole}`;
+            if (roleElement) roleElement.textContent = `User role: ${savedRole}`;
         } else {
             console.warn("Role not found in user data.");
         }
