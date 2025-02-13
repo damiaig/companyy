@@ -169,7 +169,7 @@ document.getElementById("employee-profile-form").addEventListener("submit", asyn
 
 // Live preview of name change with character limit
 document.getElementById("employee-name-input").addEventListener("input", function () {
-    const maxLength = 20;
+    const maxLength = 18;
     const newName = this.value.slice(0, maxLength); // Enforce the limit
     this.value = newName; // Update input value if it exceeds the limit
     profilePreviewName.textContent = newName || profileName.textContent;
