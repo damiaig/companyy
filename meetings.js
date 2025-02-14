@@ -16,7 +16,10 @@ const searchBar = document.querySelector('.search-bar');
 const searchResults = document.getElementById('search-result');
 const selectedUsers = document.getElementById('selected-users');
 const continueButton = document.querySelector('.continue');
-
+document.addEventListener("DOMContentLoaded", async () => {
+    // Show the loader when the page loads
+    document.querySelector(".loader-overlay").style.display = "block";
+  });
 let userName;
 let userData = JSON.parse(sessionStorage.getItem('userData'));
 onAuthStateChanged(auth, (user) => {
