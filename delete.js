@@ -9,7 +9,10 @@ const db = getFirestore();
 document.querySelector('.close').addEventListener('click', function() {
     history.back();
 });
-
+document.addEventListener("DOMContentLoaded", async () => {
+    // Show the loader when the page loads
+    document.querySelector(".loader-overlay").style.display = "block";
+  });
 // Function to open modals
 function openModal(modalClass) {
     document.querySelector(modalClass).style.display = 'flex';
