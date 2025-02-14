@@ -16,7 +16,10 @@ if (uploadTrigger && fileInput) {
 }
 
 
-
+document.addEventListener("DOMContentLoaded", async () => {
+    // Show the loader when the page loads
+    document.querySelector(".loader-overlay").style.display = "block";
+  });
 // Get modal element and button
 const modal = document.getElementById("modal-profile-setting");
 const profileSettingsBtn = document.querySelector(".profile-settings");
