@@ -13,7 +13,10 @@ window.addEventListener("load", function () {
         window.location.href = 'index.html'; // Redirect to login or Admin page
     }
 });
-
+document.addEventListener("DOMContentLoaded", async () => {
+    // Show the loader when the page loads
+    document.querySelector(".loader-overlay").style.display = "block";
+  });
 // Handle form submission for creating a new user
 document.getElementById("create-user-form").addEventListener("submit", async function(event) {
     event.preventDefault(); // Prevent default form submission
