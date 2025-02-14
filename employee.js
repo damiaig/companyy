@@ -20,6 +20,12 @@ const profilePreviewPicture = document.getElementById("employee-profile-preview-
 const profilePreviewName = document.getElementById("employee-profile-preview-name");
 const myUserId = sessionStorage.getItem("userId");
 // Load saved profile data from Firestore
+
+
+document.addEventListener("DOMContentLoaded", async () => {
+    // Show the loader when the page loads
+    document.querySelector(".loader-overlay").style.display = "block";
+  });
 window.addEventListener("load", async function () {
     // Redirect to index.html if sessionStorage is empty
   // Redirect to index.html if userId is not found in sessionStorage
