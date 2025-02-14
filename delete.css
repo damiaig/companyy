@@ -6,7 +6,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh; /* Full height */
-    margin: 0;
+ 
     width: 100%; /* Remove default margin */
 }
 
@@ -22,6 +22,7 @@ body {
     right: 10px;
     font-size: 3em;
     cursor: pointer;
+    z-index: 9999;
 }
 input, textarea {
     font-size: 16px !important; /* Prevents zooming */
@@ -350,6 +351,7 @@ position: relative;
     top:20px;
     left:20px;
     position: absolute;
+    z-index: 9999;
     display: inline-block;
     width: 50px;
     height: 24px;
