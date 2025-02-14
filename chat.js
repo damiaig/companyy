@@ -55,7 +55,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (!isInboxLoaded) await initializeApp();
 });
 
- 
+ document.addEventListener("DOMContentLoaded", async () => {
+    // Show the loader when the page loads
+    document.querySelector(".loader-overlay").style.display = "block";
+  });
 
 
 async function initializeApp() {
