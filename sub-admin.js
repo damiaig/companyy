@@ -10,7 +10,10 @@ const storage = getStorage();
 const modal = document.getElementById("modal-employee-profile-setting");
 const profileSettingsBtn = document.querySelector(".employee-profile-settings");
 const closeModal = document.querySelector(".close");
-
+document.addEventListener("DOMContentLoaded", async () => {
+    // Show the loader when the page loads
+    document.querySelector(".loader-overlay").style.display = "block";
+  });
 // Get elements for updating the profile
 const profilePicture = document.getElementById("employee-profile-picture");
 const profileName = document.getElementById("employee-profile-name");
