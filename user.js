@@ -29,7 +29,7 @@ let userData = JSON.parse(sessionStorage.getItem('userData'));
 // Elements for live preview
 const profilePreviewPicture = document.getElementById("profile-preview-picture");
 const profilePreviewName = document.getElementById("profile-preview-name");
-const myUserId = userData.id;
+const myUserId = sessionStorage.getItem("userId");
 // Load saved profile data from Firestore
 window.addEventListener("load", async function () {
     if (!sessionStorage.getItem("userId")) {
