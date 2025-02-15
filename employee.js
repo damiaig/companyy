@@ -588,10 +588,11 @@ document.querySelectorAll(".posttt").forEach(postButton => {
   postButton.addEventListener("click", async () => {
     // Validate fields before submission
     if (!validatePost()) return;
-    const loaderOverlay = document.querySelector(".loader-overlay");
     
-
+    const loaderOverlay = document.querySelector(".loader-overlay");
+    loaderOverlay.style.display = "block";
     try {
+    
       const file = fileeInput.files[0]; // Get the selected file (if any)
       const title = titleText.value.trim();
       const description = imageDescription.value.trim();
@@ -661,15 +662,13 @@ document.querySelectorAll(".posttt").forEach(postButton => {
 
       modall.style.display = "none"; // Hide the modal
       resetModal(); // Reset the modal after submission
-
+      loaderOverlay.style.display = "none";
+    
       alert("Post submitted successfully!");
       fetchAndRenderPosts();
     } catch (error) {
       console.error("Error submitting post:", error);
       alert("Failed to submit the post. Please try again.");
-    }finally {
-      // Hide the loader-overlay regardless of success or failure
-      loaderOverlay.style.display = "none";
     }
   });
 });
