@@ -583,7 +583,7 @@ function validatePost() {
       const title = titleText.value.trim();
       const description = withoutImageDescription.value.trim();
       if (!title) {
-        alert("Title is required for a post without an image.");
+        alert("Title is required for a post.");
         return false;
       }
       if (!description) {
