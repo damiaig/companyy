@@ -1381,23 +1381,38 @@ async function saveThemeToFirestore(theme) {
 // Load the theme from Firestore
 async function loadThemeFromFirestore() {
   if (!userId) return;
+  
+  const loaderOverlay = document.querySelector(".loader-overlay");
+  loaderOverlay.style.display = "block"; // Ensure loader is visible while loading
+
   try {
       const docRef = doc(db, "users", userId);
       const docSnap = await getDoc(docRef);
+
       if (docSnap.exists()) {
           const { theme } = docSnap.data();
           if (theme) {
               applyTheme(theme);
               themeSwitch.checked = theme === "light"; // Sync switch state
+              loaderOverlay.style.display = "none"; // Hide loader after applying theme
+              return;
           }
-      } else {
-          console.warn("No theme data found in Firestore. Using default theme.");
       }
+      
+      console.warn("No theme data found in Firestore. Using default theme.");
+
+      // If no theme is detected, keep loader visible for 3.5 seconds, then reload page
+      setTimeout(() => {
+          location.reload(); // Reloads the page
+      }, 5000);
+
   } catch (error) {
       console.error("Error loading theme from Firestore:", error);
-  } finally {
-      // Hide the loader after the theme is applied
-      document.querySelector(".loader-overlay").style.display = "none";
+
+      // In case of error, also wait 3.5 seconds before reloading
+      setTimeout(() => {
+          location.reload();
+      }, 5000);
   }
 }
 
