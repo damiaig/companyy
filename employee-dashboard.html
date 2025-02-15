@@ -93,6 +93,8 @@
 
 
   <!-- Modal -->
+
+  <!-- Modal -->
   <div id="post-modal" class="modalll">
     <div class="modalll-content">
       <span class="close-button" >&times;</span>
@@ -116,7 +118,7 @@
         </div>
         <div class="descrip">
           <span class="tit">Description:</span>
-          <textarea id="post-with-image-description" class="post-descrip" maxlength="190" placeholder="Type your description (max 200 characters)"></textarea>
+          <textarea id="post-with-image-description" class="post-descrip" maxlength="190" placeholder="Type your description (max 190 characters)"></textarea>
         </div>
         <button class="posttt">Post</button>
       </div>
@@ -128,16 +130,15 @@
             <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z" />
           </svg>
         </span>
-        <div class="descrip-without-title">
+
       
-          <p class="tit-post">
-            <p class="toto">Title:</p>
-            <textarea id="title-text" class="title-text" maxlength="17" placeholder="(max 22 characters)"></textarea>
-          </p>
-        </div>
-        <div class="descrip-without">
+          <div class="cover-title">
+          <p class="toto">Title:</p>
+            <textarea id="title-text" class="title-text" maxlength="17" placeholder="(max 17 characters)"></textarea>
+  
+ </div>               <div class="descrip-without">
           <span class="tit-without">Description:</span>
-          <textarea id="post-without-image-description" class="post-without-descrip" maxlength="435" placeholder="(max 550 characters)"></textarea>
+          <textarea id="post-without-image-description" class="post-without-descrip" maxlength="500" placeholder="(max 500 characters)"></textarea>
         </div>
         <button class="posttt">Post</button>
       </div>
@@ -157,15 +158,18 @@
    <div class="comment-list">
 
    </div>
-<textarea maxlength="145" class="comment-input" placeholder="Share a comment"></textarea>
+<textarea maxlength="93" class="comment-input" placeholder="Share a comment"></textarea>
 <span class="send-comment"><svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px" fill="white"><path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z"/></svg></span>
   </div>
 </div>
 
-    <!-- Include Firebase and your custom scripts -->
-    <script type="module" src="employee.js" defer></script>
-    <script>// Logout and redirect to index.html
-        const logoutButton = document.getElementById("employee-logout-button");
+
+
+        <!-- Include Firebase and your custom scripts -->
+       
+        <script type="module" src="employee.js" defer></script>
+        <script>// Logout and redirect to index.html
+          const logoutButton = document.getElementById("employee-logout-button");
         
         logoutButton.addEventListener("click", function () {
             // Clear sessionStorage to remove all stored data
@@ -174,8 +178,7 @@
             // Redirect to index.html
             window.location.href = "index.html";
         });
-        
-        </script>
-         <script src="live-reload.js" defer></script>
-</body>
+            </script>
+             <script src="live-reload.js" defer></script>
+    </body>
 </html>
