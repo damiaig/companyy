@@ -740,6 +740,7 @@ font-weight: 200;
         }
 
  
+ 
  .post-pic{
   max-width: 240px;
   height: 260px;
@@ -805,9 +806,8 @@ width: 35px;
         width: 260px;
   margin-left:auto ;
   top: 30px;
-  height: 330px;
-
-  margin-right: auto;
+  height: 415px;
+   margin-right: auto;
         position: relative;
         /* Remove fixed height */
     }
@@ -831,7 +831,7 @@ width: 35px;
         .post-without-image {
           position: relative;
           width: 300px;
-          height: 450px;
+          height: 530px;
           background-color: #58544d;
           margin-left: auto;
           margin-right: auto;
@@ -956,7 +956,7 @@ margin-left:auto ;
  top:40px !important;
 margin-right: auto;
     position: relative;
-    height: 350px;
+    height: 420px;
     /* Remove fixed height */
 }
   .post-with-image .delete-my-post{
@@ -980,7 +980,7 @@ top:10px;
     width: 280px !important;
     background-color: #58544d;
     margin-left: auto;
-    height: 470px;
+ 
     margin-right: auto;
     /* Ensure the content stays inside the container */
     /* Remove fixed height */
@@ -1029,7 +1029,7 @@ top:10px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 10px;
-   /* Ensure the content stays inside the container */
+  /* Ensure the content stays inside the container */
     /* Remove fixed height */
 }
 .title{
@@ -1087,7 +1087,7 @@ top:10px;
     background-color: #58544d;
     margin-left: auto;
     margin-right: auto;
-    height: 500px;
+ 
    /* Ensure the content stays inside the container */
     /* Remove fixed height */
 }
@@ -1104,6 +1104,9 @@ top:10px;
   position: absolute;
         }
   
+
+
+
         .post-buting{
           color: #292629;
           cursor:  pointer !important;
@@ -1122,7 +1125,8 @@ top:10px;
           overflow-wrap: break-word; /* Allow text to wrap properly */
           color: white;
           width: 210px;
-    height: 383px;
+          overflow-y: auto;
+          height: 375px !important;
           /* Remove fixed height */
       }
       
@@ -1197,10 +1201,12 @@ top:10px;
         width: 100%;
         margin: 5px 0;
         column-gap: 20px;
-        bottom:20px;
+        bottom:-33px;
   right:-130px
     }
   
+
+
     .like-count{
       font-size: 13px;
       color: white;
