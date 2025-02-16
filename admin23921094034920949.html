@@ -13,23 +13,75 @@
         <p class="yet-load">Hasn't yet loaded?</p>
         <a class="Reload-page">Reload page</a>
     </div>
+
+    <div class="divaaa">  <div class="button-grid-visible" >
+    
+      <span class="texter"> <p class="ddd" style="color:black">CHANGE THE THEME</p>    <label class="theme-toggle2">
+             
+        <input type="checkbox" id="theme-switch2">
+        <span class="slider round"></span>
+    </label>
+    </span>
+     
+    <button class="user-buttons profile-settingss">
+      <h1>Profile Settings</h1>
+      <p>Profile picture,<br> password,...</p>
+  </button>
+        <button class="user-buttons" id="user-management-button" onclick="window.location.href='create1495028484848844343.html'">
+            <h1>User Creation</h1>
+            <p>Create, manage<br> employees</p>
+        </button>
+    
+        <button class="user-buttons" id="user-delete-button" onclick="window.location.href='delete-user.html'">
+            <h1>User Management</h1>
+            <p>Delete inactive or<br> unauthorized users</p>
+    
+        </button>
+    
+    
+        <button class="user-buttons" id="user-messages-button" onclick="window.location.href='messages.html'">
+    <span class="unread-counter" style="display:none"></span>
+     
+            <h1>Messaging</h1>
+            <p>Message employees<br> and sub-admins</p>
+         <!-- Unread counter -->
+    
+        </button>
+    
+        <button class="user-buttons" onclick="window.location.href='meetings.html'">
+            <span class="unread-group-counter" style="display:none"></span>
+            <h1>Meetings</h1>
+            <p>Host and schedule<br> meetings</p>
+        </button>
+    
+       
+        <button class="user-buttons" id="logout-button">
+            <h1>Logout</h1>
+            <p>Log out of your account</p>
+        </button>
+        
+    
+    </div></div>
+   
         <div class="container">
+        
             <header>
-              
-
-
-
-
-
-                
+  
+              <div class="hamburger-menu" >
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+      
                 
                 <div class="profile">
-                    <label class="theme-toggle">
-                  
-                        <input type="checkbox" id="theme-switch">
-                        <span class="slider round"></span>
-                    </label>
+  
+               
+
+             
+
     
+                
                     <div class="profile-pic">
                         <img id="profile-picture" src="user_profile_-removebg-preview.png" alt="Profile Picture" class="profile-picture">
                     </div>
@@ -41,8 +93,18 @@
                 
             </header>
 
+
+
+ 
             <div class="main">
                 <div class="button-grid">
+                  <span class="texter"> <p class="ddd">CHANGE THE THEME</p>    <label class="theme-toggle">
+                  
+                    <input type="checkbox" id="theme-switch">
+                    <span class="slider round"></span>
+                </label>
+              </span>
+                 
                     <button class="user-buttons profile-settings">
                         <h1>Profile Settings</h1>
                         <p>Profile picture,<br> password,...</p>
@@ -81,42 +143,11 @@
                     </button>
                     
                 </div>
-            </div>
+     
 
             <!-- Profile Settings Modal -->
            <!-- Profile Settings Modal -->
-<div id="modal-profile-setting" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2>Profile Settings</h2>
-        <form id="profile-form">
-            <!-- Profile Picture Input -->
-          <!-- Profile Picture Input -->
-<label for="profile-picture-input">Change Profile Picture:</label>
-<div class="file-upload-wrapper">
-    <span class="upload-trigger">+</span>
-    <input type="file" id="profile-picture-input" accept="image/*" hidden>
-</div>
-<br>
 
-            <!-- Profile Name Input -->
-            <label for="name-input">Change Profile Name:</label>
-            <input type="text" id="name-input" max="18" placeholder="Enter new name">
-
-
-    
-            <!-- Preview Section -->
-            <h3>Preview</h3>
-            <div class="preview-container">
-                <img id="profile-preview-picture" src="user_profile_-removebg-preview.png" alt="Profile Preview" class="profile-picture">
-                <h4 id="profile-preview-name">Loren Ipsudum</h4>
-            </div>
-            
-
-            <button class="submit" type="submit">Save Changes</button>
-        </form>
-    </div>
-</div>
 
             <div class="announcement-page">
             <div class="post-von"><span class="post-buting" style="cursor: pointer;">+</span>
@@ -129,9 +160,41 @@
         </div>
             </div>
 
+          </div>
 
-  <!-- Modal -->
-  
+            <div id="modal-profile-setting" class="modal">
+              <div class="modal-content">
+                  <span class="close">&times;</span>
+                  <h2>Profile Settings</h2>
+                  <form id="profile-form">
+                      <!-- Profile Picture Input -->
+                    <!-- Profile Picture Input -->
+          <label for="profile-picture-input">Change Profile Picture:</label>
+          <div class="file-upload-wrapper">
+              <span class="upload-trigger">+</span>
+              <input type="file" id="profile-picture-input" accept="image/*" hidden>
+          </div>
+          <br>
+          
+                      <!-- Profile Name Input -->
+                      <label for="name-input">Change Profile Name:</label>
+                      <input type="text" id="name-input" max="18" placeholder="Enter new name">
+          
+          
+              
+                      <!-- Preview Section -->
+                      <h3>Preview</h3>
+                      <div class="preview-container">
+                          <img id="profile-preview-picture" src="user_profile_-removebg-preview.png" alt="Profile Preview" class="profile-picture">
+                          <h4 id="profile-preview-name">Loren Ipsudum</h4>
+                      </div>
+                      
+          
+                      <button class="submit" type="submit">Save Changes</button>
+                  </form>
+              </div>
+          </div>
+
   <!-- Modal -->
   <div id="post-modal" class="modalll">
     <div class="modalll-content">
@@ -220,4 +283,3 @@
              <script src="live-reload.js" defer></script>
     </body>
 </html>
-
