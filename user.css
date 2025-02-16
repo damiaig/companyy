@@ -20,7 +20,7 @@ overflow-x: hidden;
 header {
   z-index: 1;
   width: 100%;
-  height: 100px;
+  height: 120px;
   background-color: #301a66;
 }
 
@@ -36,11 +36,11 @@ header {
 .profile {
   z-index: 1000;
   position: relative;
-  top: 30px;
+  top: 0px;
   margin: auto;
   width: 500px;
   height: 120px;
-  background-color: #292623;
+ 
   display: flex;
   align-items: center;
 }
@@ -55,7 +55,7 @@ header {
   overflow: hidden;
   margin-right: 20px;
 }
-
+ 
 .profile-pic img {
  
   width: 100%;
@@ -66,8 +66,9 @@ header {
 
 .text-profile {
   position: relative;
-  right: -50px;
-  color: #d7d261;
+  top: 10px;
+  right: -20px;
+  color: white;
   text-align: left;
 }
 
@@ -77,43 +78,195 @@ header {
 
 .text-profile p {
   font-weight: 200;
-  margin-top: -15px;
+  margin-top: -25px;
   font-size: 14px;
 }
-
 .main {
-  margin-top: 100px;
+  display: flex;
+ /* Space between the two sections */
+  justify-content: space-between;
+  height: 120vh; /* Full height of the screen */
 }
 
-.button-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns */
-    grid-template-rows: repeat(2, 1fr);   /* 2 rows */
-    grid-column-gap: 0px; /* Horizontal space between buttons */
-    grid-row-gap: 20px; /* Vertical space between buttons */
-    justify-items: center; /* Center the buttons horizontally */
-    align-items: center;   /* Center the buttons vertically */
-  }
-  
-.user-buttons {
-  height: 85px;
-  width: 70%; /* Adjust the width as needed */
-  background-color: #292623;
-  border-radius: 40px;
-  border: none;
+
+
+.hamburger-menu {
+display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
   cursor: pointer;
-  position: relative;
-  color: #fff;
-  font-weight: bold;
+  position: absolute !important;
+  right: 20px;
+  top: 20px;
+  z-index: 10000 !important;
 }
-.button-grid button{
-font-weight: 500;
-font-size: 17px;
-color: #d7d261;}
+/* Ensure the hamburger is always visible */
+
+/* Change hamburger bars to black when divaa is shown */
+
+
+ .bar {
+  background-color: white;
+  height: 3px;
+  width: 100%;
+  z-index: 99999;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+ 
+
+.hamburger-menu.active .bar:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger-menu.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-menu.active .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+ 
+
+/* Close button default hidden */
+.close-menu {
+  display: flex;
+  font-size: 30px;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  z-index: 99999;
+ 
+}
+.close-menu .bar{
+  background-color: black;
+}
+/* Fix button grid display */
+.button-grid {
+  display: none; /* Default hidden */
+}
+
+/* Ensure media queries properly show the hamburger */
+  
+
+
+
+.hamburger-menu.active + .button-grid .close-menu {
+  display: block;
+  top: 10px; /* Align with hamburger menu */
+  right: 10px; /* Align with hamburger menu */
+  width: 30px; /* Same size as hamburger menu */
+  height: 30px; /* Same size as hamburger menu */
+}
+
+.button-grid-visible{
+  position: absolute;
+  flex: 1; /* Take up half of the screen */
+  display: grid;
+
+  grid-template-columns: repeat(1, 1fr); /* 3 buttons per row */
+    /* 2 rows */
+  grid-gap: 20px; /* Space between buttons */
+  justify-items: center;
+  align-items: center;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  width: 100%;
+  height: auto;
+  z-index: 9998;
+ overflow-x: hidden;
+ background-color: #58544d !important;
+}
+.divaaa {
+  display: none; /* Initially hidden */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh; /* Cover the whole screen */
+  background-color: none;
+  z-index: 9998;
+  background-color: #58544d !important;
+  overflow: auto;
+}
+
+/* Ensure divaaa is only visible on screens <= 700px */
+@media (max-width: 700px) {
+  .divaaa {
+      display: none; /* Hidden by default */
+  }
+.button-grid{
+  display: none !important;
+}
+
+.close-menu{
+  display: flex;
+}
+  .hamburger-menu {
+    z-index: 99999;
+      display: flex; /* Ensure the hamburger is visible */
+  }
+}
 
  
 
-.button-grid button h1{
+
+/* Left Section: Button Grid */
+.button-grid {
+  position: relative;
+  flex: 1; /* Take up half of the screen */
+  display: grid;
+  grid-template-columns: repeat(1, 1fr); /* 3 buttons per row */
+    /* 2 rows */
+  grid-gap: 20px; /* Space between buttons */
+  justify-items: center;
+  align-items: center;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  width: 100%;
+  height: auto;
+  background-color: #3a3732;
+  border: 15px solid #292623;
+}
+
+/* Buttons */
+.user-buttons {
+  height: 85px;
+  width: 80%;
+  background-color: #58544d;
+  border-radius: 40px;
+  border: none;
+  cursor: pointer;
+  color: white;
+ top: -38px;
+ position: relative;
+  font-weight: bold;
+  font-size: 17px;
+  text-align: center;
+}
+
+/* Right Section: Announcement Page */
+.announcement-page {
+  position: relative;
+  flex: 1; /* Take up half of the screen */
+ 
+  height: auto;
+  /* Full height of the parent container */
+  background-color: #3a3732;
+  border: 15px solid #292623;
+  overflow: hidden;
+}
+.button-grid button, .button-grid-visible button{
+font-weight: 500;
+font-size: 17px;
+color: white;}
+
+ 
+
+.button-grid button h1, .button-grid-visible button h1{
     margin-top: 4px;
 
 font-size: 23px;
@@ -129,28 +282,18 @@ font-weight: 200;
 
 
 
-.announcement-page {
-  border-radius: 40px;
-  margin-bottom: 230px;
-  width: 80%;
-  height: 550px; /* Set a fixed height */
-  margin: 20px auto;
-  margin-bottom: 0px !important; /* Center it horizontally and add spacing */
-  padding: 10px; /* Add some padding for inner content */
-  overflow-x: hidden;
-  overflow-y: hidden; /* Enable vertical scrolling */
-  background-color: #3a3732; /* Background color for the section */
-  border: 20px solid #292623;
-  
-}
+ 
 
 
 
 [data-theme="light"] .user-buttons {
-  background-color: #DDD9D3; /* Background color for the section */
+ color: white; /* Background color for the section */
    
   }
-
+  [data-theme="light"] .user-buttons p,   [data-theme="light"] .user-buttons h1 {
+ color: black; /* Background color for the section */
+     
+    }
 
 /* Styling for the profile picture in the main profile section */
 .profile-pic img {
@@ -174,12 +317,9 @@ font-weight: 200;
     text-align: center;
     font-size: 1.2em;
     margin-top: 10px;
-    color: #d7d261; /* Set text color */
+    color: white; /* Set text color */
 }
-
-
  
-
 /* Modal content styling */
 .modal-content {
   overflow-y: scroll;
@@ -190,7 +330,7 @@ font-weight: 200;
     border-radius: 10px;
     position: relative;
     margin: 100px auto;
-    color: #d7d261; /* Set text color for all content inside modal */
+    color: white; /* Set text color for all content inside modal */
 }
  
 /* General modal styles */
@@ -198,7 +338,7 @@ font-weight: 200;
 
     display: none; /* Hidden by default */
     position: fixed;
-    z-index: 10002;
+    z-index: 99999;
     left: 0;
     top: 0;
     width: 100%;
@@ -213,7 +353,7 @@ font-weight: 200;
     right: 20px;
     font-size: 3em;
     cursor: pointer;
-    color: #d7d261; /* Set close button color */
+    color: white; /* Set close button color */
 }
 
 [data-theme="light"] .close {
@@ -235,7 +375,7 @@ font-weight: 200;
 /* Input fields and labels styling for modal */
 label, input {
   font-weight: 300;
-    color: #d7d261; /* Set text color for labels and input */
+  color: white; /* Set text color for labels and input */
 }
 
 /* Button styling inside modal */
@@ -327,7 +467,7 @@ background-color: #BEB7AC;
  
 
 @media (max-width: 1050px) {
-  .button-grid button h1{
+  .button-grid button h1, .button-grid-visible button h1{
     margin-top: 4px;
 
 font-size: 20px;
@@ -336,7 +476,7 @@ font-size: 20px;
 .user-buttons {
   height: 85px;
   width: 80%; /* Adjust the width as needed */
-  background-color: #292623;
+ 
   border-radius: 40px;
   border: none;
   cursor: pointer;
@@ -344,7 +484,7 @@ font-size: 20px;
   font-weight: bold;
 }
 
-.button-grid button p{ 
+.button-grid button p, .button-grid-visible button p{ 
         margin-top: -8px;
     font-size: 14px;
 font-weight: 200;
@@ -354,7 +494,7 @@ font-weight: 200;
 
 
 @media (max-width: 900px) {
-  .button-grid button h1{
+  .button-grid button h1, .button-grid-visible button h1{
     margin-top: 4px;
 
 font-size: 18px;
@@ -362,36 +502,31 @@ font-size: 18px;
 .user-buttons {
   height: 85px;
   width: 85%; /* Adjust the width as needed */
-  background-color: #292623;
+ 
   border-radius: 40px;
   border: none;
   cursor: pointer;
   color: #fff;
   font-weight: bold;
 }
-.button-grid button p{ 
+.button-grid button p, .button-grid-visible button p{ 
         margin-top: -8px;
     font-size: 14px;
 font-weight: 200;
 }
 
-}
-
-
+} 
 @media (max-width: 780px) {
-  .button-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 3 columns */
-    grid-template-rows: repeat(2, 1fr);   /* 2 rows */
-    grid-column-gap: 0px; /* Horizontal space between buttons */
-    grid-row-gap: 20px; /* Vertical space between buttons */
-    justify-items: center; /* Center the buttons horizontally */
-    align-items: center;   /* Center the buttons vertically */
+ 
+  .button-grid-visible .user-buttons{
+    width: 75%; /* Adjust the width as needed */
+    top:-50px !important;
   }
+ 
 
   .user-buttons {
     height: 85px;
-    width: 80%; /* Adjust the width as needed */
+    width: 90%; /* Adjust the width as needed */
     background-color: #292623;
     border-radius: 40px;
     border: none;
@@ -401,13 +536,13 @@ font-weight: 200;
   }
 
 
-  .button-grid button h1{
+  .button-grid button h1, .button-grid-visible button h1{
     margin-top: 4px;
 
 font-size: 21px;
 }
 
-.button-grid button p{ 
+.button-grid button p, .button-grid-visible button p{ 
         margin-top: -8px;
     font-size: 14px;
 font-weight: 200;
@@ -430,13 +565,13 @@ font-weight: 200;
   }
 
 
-  .button-grid button h1{
+  .button-grid button h1, .button-grid-visible button h1{
     margin-top: 4px;
 
 font-size: 21px;
 }
 
-.button-grid button p{ 
+.button-grid button p, .button-grid-visible button p{ 
         margin-top: -8px;
     font-size: 14px;
 font-weight: 200;
@@ -451,11 +586,14 @@ font-weight: 200;
   .profile h1{
     font-size: 22px;
   }
-
+  .button-grid-visible .user-buttons{
+    width: 90%; /* Adjust the width as needed */
+    top:-50px !important;
+  }
   .user-buttons {
     height: 85px;
-    width: 80%; /* Adjust the width as needed */
-    background-color: #292623;
+    width: 90%; /* Adjust the width as needed */
+ 
     border-radius: 40px;
     border: none;
     cursor: pointer;
@@ -466,12 +604,12 @@ font-weight: 200;
   .profile {
     z-index: 1000;
     position: relative;
-    top: 30px;
+ 
  
     margin: auto;
     width: 390px;
     height: 120px;
-    background-color: #292623;
+ 
     display: flex;
     align-items: center;
   }
@@ -481,32 +619,30 @@ font-weight: 200;
   height:100px;
   width:100px
 }
+.texter{
+  position: absolute;
+  top:10px;
+  width: 280px;
+left: 0px;
 
-  .button-grid {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr); /* 3 columns */
-    grid-template-rows: repeat(2, 1fr);   /* 2 rows */
-    grid-column-gap: 0px; /* Horizontal space between buttons */
-    grid-row-gap: 20px; /* Vertical space between buttons */
-    justify-items: center; /* Center the buttons horizontally */
-    align-items: center;   /* Center the buttons vertically */
-  }
-  .text-profile{
-    margin-left: -40px;
-  }
+ 
+  font-weight: 700;
+  font-size: 20px;
+}
+ 
   
     .profile h1{
       font-size: 22px;
       
     }
 
-  .button-grid button h1{
+  .button-grid button h1, .button-grid-visible button h1{
     margin-top: 4px;
 
 font-size: 21px;
 }
 
-.button-grid button p{ 
+.button-grid button p, .button-grid-visible button p{ 
         margin-top: -8px;
     font-size: 15px;
 font-weight: 200;
@@ -515,35 +651,53 @@ font-weight: 200;
 }
 @media (max-width: 400px){
 
+ 
   .profile h1{
-    font-size: 18px;
+    font-size: 20px;
   }
+
+  .texter{
+    position: absolute;
+    top:10px;
+    width: 280px;
+  left: -30px !important;
   
-  .text-profile{
-    margin-left: -45px;
+   
+    font-weight: 700;
+    font-size: 20px;
   }
-    .profile p{
-    font-size: 14px;
+
+  .texter .ddd{
+    font-size: 18px;
+    top:-15px !important;
   }
 
 .profile {
   z-index: 1000;
   position: relative;
-  top: 30px;
+ 
   margin: auto;
   width: 335px;
   height: 120px;
-  background-color: #292623;
+   
   display: flex;
   align-items: center;
 }
 }
+@media (max-width: 335px){
+  .text-profile{
+  margin-left: -10px !important;
+}}
 
+@media (max-width: 315px){
+  .text-profile{
+  margin-left: -20px !important;
+}}
 /* The switch - the box around the slider */
 .theme-toggle {
   cursor: pointer !important;
-  top:10px;
-  right:20px;
+  top:3px;
+  right:0px;
   position: absolute;
   display: inline-block;
   width: 50px;
@@ -556,8 +710,26 @@ font-weight: 200;
   opacity: 0;
   width: 0;
   height: 0;
+ 
 }
 
+.texter .ddd{
+  position: absolute;
+  right: 60px;
+  top:-18px;
+  color: #fff !important;
+}
+
+.texter{
+  position: absolute;
+  top:10px;
+  width: 280px;
+  margin-left: auto;
+  margin-right: auto;
+ 
+  font-weight: 700;
+  font-size: 20px;
+}
 /* The slider */
 .theme-toggle .slider {
   position: absolute;
@@ -615,6 +787,84 @@ font-weight: 200;
 }
 
 
+
+
+
+
+.theme-toggle2 {
+  cursor: pointer !important;
+  top:3px;
+  right:0px;
+  position: absolute;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+/* Hide default HTML checkbox */
+.theme-toggle2 input {
+  cursor: pointer !important;
+  opacity: 0;
+  width: 0;
+  height: 0;
+ 
+}
+
+
+
+
+
+.theme-toggle2 .slider {
+  position: absolute;
+  cursor: pointer !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.theme-toggle2 .slider:before {
+  cursor: pointer !important;
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #292623;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+#theme-switch2:checked + .slider {
+  cursor: pointer !important;
+  background-color: #292629;
+}
+
+#theme-switch2:focus + .slider {
+  cursor: pointer !important;
+  box-shadow: 0 0 1px #292629;
+}
+
+#theme-switch2:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  cursor: pointer !important;
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+  background-color: #ccc; /* Change circle color to #ccc */
+
+}
+
+
+
+
+
+
+
+
 .unread-counter {
   background-color: red;
   color: white;
@@ -653,10 +903,19 @@ font-weight: 200;
   z-index: 10; /* Ensure it appears above other elements */
 }
 
-[data-theme="light"] body{
-  background-color: 	#BEB7AC;
+[data-theme="light"] body, [data-theme="light"] .announcement-page, [data-theme="light"] .button-grid, [data-theme="light"] .button-grid-visible{
+  background-color: 	#BEB7AC !important;
  
 }
+
+[data-theme="light"] .post-von p {
+  color: black !important;
+        }
+  
+        [data-theme="light"] .post-buting{
+          color: white !important;
+          background-color: black !important;}
+  
 
 [data-theme="light"] html {
   background-color: 	#BEB7AC !important;
@@ -670,25 +929,22 @@ font-weight: 200;
  
 }
 
-[data-theme="light"] .profile {
-  background-color: 	#EAE6E3	;
  
-}
 
 
-[data-theme="light"] .profile {
-  color: 	#292623	;
+[data-theme="light"] .profile, [data-theme="light"] .ddd {
+  color: 	black	!important;
    
   }
 
 
   [data-theme="light"] .text-profile {
-    color: 	#292623	;
+    color: 	white	;
      
     }
 
     [data-theme="light"] .user-buttons {
-      color: 	#292623	;
+      color: 	black	;
        
       }
     
@@ -697,38 +953,38 @@ font-weight: 200;
         background-color: 	#EAE6E3	;
          
         }
-
+ 
+        [data-theme="light"] .bar {
+          background-color: 	black	;
+        }  
         [data-theme="light"] .preview-container h4 {
-          color: #292623; /* Background color for the section */
+          color: black; /* Background color for the section */
           
             }
     
 
-[data-theme="light"] .user-buttons {
-  background-color: #DDD9D3; /* Background color for the section */
-   
-  }
+  
 
 
 [data-theme="light"] .modal-content{
-  color: #292623; /* Background color for the section */
+  color: black; /* Background color for the section */
    background-color:#EAE6E3 ;
     }
 
 [data-theme="light"] .preview-container h4 {
-  color: #292623; /* Background color for the section */
+  color: black; /* Background color for the section */
    background-color:#EAE6E3 ;
     }
 
 
 
     [data-theme="light"] #name-input::placeholder {
-      color: #EAE6E3; /* Background color for the section */
+      color: white; /* Background color for the section */
     
         }
     
         [data-theme="light"] #name-input  {
-          color: #EAE6E3; /* Background color for the section */
+          color: white; /* Background color for the section */
           background-color: #292623;
             }
        
@@ -738,9 +994,6 @@ font-weight: 200;
       background-color: #BBA5FF; /* Background color for the section */
     
         }
-
- 
- 
 
  .post-pic{
   max-width: 240px;
@@ -770,22 +1023,29 @@ font-weight: 200;
         position: relative;
 
       }
+      
+
+
 
       .post-von p{position: relative;
         top:-10px;
         color: white;
+        font-weight: 600;
       align-items: center;}
+
       .post-von{
+        top:7px;
+        left: 10px;
         display: flex;           /* Use flexbox for alignment */
         justify-content: center; /* Center buttons horizontally */
         column-gap: 10px;               /* Add space between buttons */
         /* Add space above buttons if needed */
 position: absolute;
       }
-
+ 
       .post-buting{
-        color: #292629;
-        background-color: #BEB7AC;
+        color: black;
+        background-color: white;
 height: 35px;
 text-align: center;
 width: 35px;
@@ -846,7 +1106,7 @@ width: 35px;
         .post{
           overflow-y: auto ;
           overflow-x: hidden;
-          height: 500px;
+          height:90% !important;
      position: relative;
 top: 50px;
           grid-template-columns: repeat(1, 1fr); /* 3 columns */
@@ -854,7 +1114,7 @@ top: 50px;
 
  
         .user-profile {
-          margin-left: 30px;
+          margin-left: 20px;
 position: relative;
 top:5px;
          display: flex;
@@ -988,7 +1248,8 @@ top:10px;
           bottom:20px;
     right:-130px
       }
-    
+      .user-profile {
+        margin-left: 15px;}
 
   .post-without-image .posted-buttons {
     position: absolute;
@@ -1028,7 +1289,8 @@ top:10px;
     margin-bottom: 15px;
     border-radius: 50px;
   }
-
+  .user-profile {
+    margin-left: 15px !important;}
 
 .user-name{
   font-size: 13px !important;
@@ -1077,7 +1339,7 @@ top:10px;
     top: 0px;
    }
  .delete-my-post{
-  right: 10px !important;
+  right: 20px !important;
  }
    .post-with-image{
     position: relative;
@@ -1188,7 +1450,7 @@ top:10px;
   
   
           .user-profile {
-            margin-left: 30px;
+     
   
            display: flex;
            align-items: center;
@@ -1241,7 +1503,7 @@ top:10px;
     }
   
 
-
+.delete-my-post
     .like-count{
       font-size: 13px;
       color: white;
@@ -1269,7 +1531,7 @@ top:10px;
   align-content: center;
   display: none;
   position: fixed;
-  z-index: 1000;
+  z-index: 99999;
   left: 0;
   top: 0;
   width: 100%;
@@ -1285,6 +1547,7 @@ top:10px;
   padding: 20px;
   width: 80%;
   height: 85vh;
+  z-index: 99999 !important;
   overflow-y: auto;
   text-align: center;
   border-radius: 8px;
@@ -1743,6 +2006,8 @@ top:-20px;
  object-fit: cover;
 }
 
+.modal-content
+
 .user-name-comment {
  font-size: 15px;
  color: #fff;
@@ -1872,7 +2137,7 @@ position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 2000; /* Ensure it appears above all content */
+  z-index: 99999 !important; /* Ensure it appears above all content */
 }
 
 .loader {
@@ -1939,5 +2204,6 @@ position: relative;
 .delete-my-post{
   position:absolute !important;
   right:30px;
+  cursor: pointer;
   top:20px;
 }
