@@ -15,16 +15,17 @@ if (uploadTrigger && fileInput) {
     });
 }
 
-
-document.addEventListener("DOMContentLoaded", async () => {
-    // Show the loader when the page loads
-    document.querySelector(".loader-overlay").style.display = "block";
-  });
+ 
+const profileSettingsBtn2 = document.querySelector(".profile-settingss");
 // Get modal element and button
 const modal = document.getElementById("modal-profile-setting");
 const profileSettingsBtn = document.querySelector(".profile-settings");
-const closeModal = document.querySelector(".close");
 
+const closeModal = document.querySelector(".close");
+document.addEventListener("DOMContentLoaded", async () => {
+  // Show the loader when the page loads
+  document.querySelector(".loader-overlay").style.display = "block";
+});
 // Get elements for updating the profile
 const profilePicture = document.getElementById("profile-picture");
 const profileName = document.querySelector(".name");
@@ -103,6 +104,17 @@ if (profileSettingsBtn) {
         profilePreviewPicture.src = profilePicture.src;
     });
 }
+if (profileSettingsBtn2) {
+  profileSettingsBtn2.addEventListener("click", function () {
+      modal.style.display = "block";
+      document.body.style.overflow = "hidden"; // Disable background scrolling
+      modal.style.overflowY = "auto"; // Allow scrolling inside the modal
+      profilePreviewName.textContent = profileName.textContent;
+      profilePreviewPicture.src = profilePicture.src;
+  });
+}
+
+
 
 // Close modal
 if (closeModal) {
@@ -210,10 +222,94 @@ document.getElementById("name-input").addEventListener("input", function () {
 });
 
  
+const userId = sessionStorage.getItem("userId");
+const themeSwitch2 = document.getElementById("theme-switch2");
+
+// Function to check screen width
+function isMobileView() {
+    return window.innerWidth <= 700;
+}
+
+// Apply the theme
+function applyThemee(theme) {
+    if (!isMobileView()) return; // Only apply theme if width is ≤ 700px
+    document.documentElement.setAttribute("data-theme", theme);
+}
+
+// Save the theme to Firestore
+async function saveThemeToFirestoree(theme) {
+    if (!userId || !isMobileView()) return; // Prevent saving if not mobile view
+    try {
+        await setDoc(doc(db, "users", userId), { theme }, { merge: true });
+        console.log("Theme saved to Firestore:", theme);
+    } catch (error) {
+        console.error("Error saving theme to Firestore:", error);
+    }
+}
+
+async function loadThemeFromFirestoree() {
+    if (!userId || !isMobileView()) return;
+    
+    const loaderOverlay = document.querySelector(".loader-overlay");
+    loaderOverlay.style.display = "block"; // Show loader while loading
+
+    try {
+        const docRef = doc(db, "users", userId);
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+            const { theme } = docSnap.data();
+            if (theme) {
+                applyThemee(theme);
+                themeSwitch2.checked = theme === "light"; // Sync switch state
+                loaderOverlay.style.display = "none"; // Hide loader after applying theme
+                return;
+            }
+        }
+
+        console.warn("No theme data found in Firestore. Using default theme.");
+
+        // Keep loader visible for 3.5 seconds, then reload page
+        setTimeout(() => {
+            location.reload();
+        }, 5000);
+
+    } catch (error) {
+        console.error("Error loading theme from Firestore:", error);
+
+        // Reload on error after 3.5 seconds
+        setTimeout(() => {
+            location.reload();
+        }, 5000);
+    }
+}
+
+// Event listener for theme toggle
+document.querySelector(".theme-toggle2").addEventListener("click", function () {
+    if (!isMobileView()) return; // Prevent execution if screen width is above 700px
+
+    // Toggle theme switch state
+    themeSwitch2.checked = !themeSwitch2.checked;
+    const theme = themeSwitch2.checked ? "light" : "dark";
+
+    applyThemee(theme);
+    saveThemeToFirestoree(theme);
+});
+window.addEventListener("load", () => {
+  if (isMobileView()) {
+      loadThemeFromFirestoree();
+  }
+});
+
+
+
+
+
+
 
 
 const themeSwitch = document.getElementById("theme-switch");
-const userId = sessionStorage.getItem("userId");
+ 
 
 // Set the theme on the page
 function applyTheme(theme) {
@@ -267,6 +363,7 @@ async function loadThemeFromFirestore() {
       }, 5000);
   }
 }
+
 
 // Event listener for theme toggle
 document.querySelector(".theme-toggle").addEventListener("click", function (event) {
@@ -450,7 +547,7 @@ function showLoaderOnUnstableConnection() {
         loaderOverlay.style.display = "block"; // Show loader
         setTimeout(() => {
             loaderOverlay.style.display = "none"; // Hide after 3 seconds
-        }, 3000);
+        }, 2000);
     }
 }
 
@@ -650,7 +747,7 @@ document.querySelectorAll(".posttt").forEach(postButton => {
   postButton.addEventListener("click", async () => {
     // Validate fields before submission
     if (!validatePost()) return;
-    
+
     const loaderOverlay = document.querySelector(".loader-overlay");
     loaderOverlay.style.display = "block";
     try {
@@ -763,6 +860,7 @@ function getTimeAgo(timestampInSeconds) {
   }
 }
 
+ 
 
 // Function to fetch and render posts
 async function fetchAndRenderPosts() {
@@ -1154,59 +1252,66 @@ async function deleteComment(postId, commentId) {
 
 
     
-    const likeButtons = document.querySelectorAll('.like');
-    likeButtons.forEach((likeButton) => {
-      likeButton.addEventListener('click', async function () {
-        const svg = likeButton.querySelector('svg');
-        const postElement = likeButton.closest('[data-id]');
-    
-        if (!postElement) {
-          console.error('No parent element with data-id found.');
-          return; // Exit early if no data-id is found.
+const likeButtons = document.querySelectorAll(".like");
+
+likeButtons.forEach((likeButton) => {
+  likeButton.addEventListener("click", async function () {
+    const svg = likeButton.querySelector("svg");
+    const postElement = likeButton.closest("[data-id]");
+
+    if (!postElement) {
+      console.error("No parent element with data-id found.");
+      return;
+    }
+
+    const postId = postElement.getAttribute("data-id");
+    const postRef = doc(db, "announcements", postId);
+    const isLiked = svg.classList.contains("liked");
+
+    // Prevent multiple clicks from executing too fast
+    if (likeButton.disabled) return;
+    likeButton.disabled = true;
+
+    try {
+      const postSnapshot = await getDoc(postRef);
+      if (postSnapshot.exists()) {
+        const postData = postSnapshot.data();
+        const userId = userData.id;
+
+        if (isLiked) {
+          // Unlike post
+          await updateDoc(postRef, {
+            likeCount: arrayRemove(userId),
+          });
+
+          // Change the SVG style without replacing the element
+          svg.classList.remove("liked");
+          svg.setAttribute("fill", "transparent");
+          svg.setAttribute("stroke", "#fff");
+          svg.setAttribute("stroke-width", "2");
+        } else {
+          // Like post
+          await updateDoc(postRef, {
+            likeCount: arrayUnion(userId),
+          });
+
+          // Change the SVG style without replacing the element
+          svg.classList.add("liked");
+          svg.setAttribute("fill", "#fff");
+          svg.setAttribute("stroke", "none");
         }
-    
-        const postId = postElement.getAttribute('data-id');
-        const postRef = doc(db, 'announcements', postId); // Reference to the Firestore post
-        const isLiked = svg.classList.contains('liked');
-    
-        try {
-          // Fetch the post to check the likeCount array
-          const postSnapshot = await getDoc(postRef);
-          if (postSnapshot.exists()) {
-            const postData = postSnapshot.data();
-            const likeCountArray = postData.likeCount || [];
-            const userId = userData.id; // Replace with the actual user ID from your auth state
-    
-            if (isLiked) {
-              // Unlike the post: Remove the user's ID from the array
-              await updateDoc(postRef, {
-                likeCount: arrayRemove(userId),
-              });
-              // Update SVG to unliked state
-              svg.outerHTML = `
-                <svg class="like-svg" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
-                  <path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
-                </svg>`;
-            } else {
-              // Like the post: Add the user's ID to the array
-              await updateDoc(postRef, {
-                likeCount: arrayUnion(userId),
-              });
-              // Update SVG to liked state
-              svg.outerHTML = `
-                <svg class="like-svg liked" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed">
-                  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                </svg>`;
-            }
-          } else {
-            console.error("Post not found!");
-          }
-        } catch (error) {
-          console.error("Error updating like:", error);
-        }
-      });
-    });
-      
+      } else {
+        console.error("Post not found!");
+      }
+    } catch (error) {
+      console.error("Error updating like:", error);
+    } finally {
+      // Re-enable the button after the async operation completes
+      likeButton.disabled = false;
+    }
+  });
+});
+
     
 
   } catch (error) {
@@ -1216,8 +1321,69 @@ async function deleteComment(postId, commentId) {
 }
  
 // Call the function to render posts on page load
+ 
 fetchAndRenderPosts();
+document.addEventListener("DOMContentLoaded", function () {
+  const hamburger = document.querySelector(".hamburger-menu");
+  const closeMenu = document.querySelector(".close-menu");
+  const divaaa = document.querySelector(".divaaa");
+  const bars = document.querySelectorAll(".bar"); // Select all bars inside the hamburger
 
+  // Function to check screen width and hide menu if necessary
+  function checkScreenWidth() {
+    if (window.innerWidth > 700) {
+      closeMenuAction(); // Ensure menu closes when resizing above 700px
+    }
+  }
 
+ 
 
-  
+  // Function to reset hamburger position
+  function resetHamburger() {
+    hamburger.style.position = ""; // Reset to default position
+  }
+
+  // Function to open menu
+  function openMenu() {
+    divaaa.style.display = "block"; // Ensure the menu is displayed
+    divaaa.style.opacity = "1";
+    divaaa.style.visibility = "visible";
+    divaaa.style.transform = "translateY(0)"; // Slide in effect
+    hamburger.classList.add("active"); // Apply animation to hamburger
+ 
+ // Keep hamburger fixed when menu is open
+  }
+
+  // Function to close menu
+  function closeMenuAction() {
+    divaaa.style.opacity = "0";
+    divaaa.style.visibility = "hidden";
+    divaaa.style.transform = "translateY(-20px)"; // Slide out effect
+    setTimeout(() => {
+      divaaa.style.display = "none"; // Hide after animation
+    }, 300); // Delay matches animation duration
+    hamburger.classList.remove("active"); 
+     
+
+    resetHamburger(); // Reset hamburger to its original position
+  }
+
+  // Function to toggle menu when clicking the hamburger
+  function toggleMenu() {
+    if (divaaa.style.display === "block" && divaaa.style.opacity === "1") {
+      closeMenuAction(); // If menu is open, close it
+    } else {
+      openMenu(); // If menu is closed, open it
+    }
+  }
+
+  // Event Listeners
+  hamburger.addEventListener("click", toggleMenu);
+ 
+
+  // Hide divaaa when resizing above 700px
+  window.addEventListener("resize", checkScreenWidth);
+
+  // Initial check on page load
+  checkScreenWidth();
+});
