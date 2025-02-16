@@ -700,7 +700,8 @@ font-weight: 200;
 
 
                 
-.post-pic{
+
+ .post-pic{
   max-width: 240px;
   height: 260px;
   margin-left: auto;
@@ -936,7 +937,19 @@ top:10px;
 
   }
 
-  .posted-buttons {
+  .post-with-image .posted-buttons {
+    position: absolute;
+          display: flex;
+    
+          width: 100%;
+          margin: 5px 0;
+          column-gap: 20px;
+          bottom:20px;
+    right:-130px
+      }
+    
+
+  .post-without-image .posted-buttons {
     position: absolute;
           display: flex;
     
@@ -1111,7 +1124,17 @@ top:10px;
   }
         
   
-  
+  .post-with-image .posted-buttons {
+    position: absolute;
+          display: flex;
+    
+          width: 100%;
+          margin: 5px 0;
+          column-gap: 20px;
+          bottom:20px;
+    right:-130px
+      }
+    
           .post{
             overflow-y: auto ;
             overflow-x: hidden;
@@ -1165,7 +1188,7 @@ top:10px;
        }
   
   
-        .posted-buttons {
+       .post-without-image .posted-buttons{
   position: absolute;
         display: flex;
   
@@ -1876,5 +1899,4 @@ position: relative;
   position:absolute !important;
   right:30px;
   top:20px;
-cursor:pointer;
 }
