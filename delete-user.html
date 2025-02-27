@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="delete.css" rel="stylesheet">
+    <title>Delete User</title>
+</head>
+<body>
+    <div class="loader-overlay" style="display: none;">
+        <div class="loader"></div>
+        <p class="yet-load">Hasn't yet loaded?</p>
+        <a class="Reload-page">Reload page</a>
+    </div>
+    <label class="theme-toggle">
+                  
+        <input type="checkbox" id="theme-switch">
+        <span class="slider round"></span>
+    </label>
+
+    <span class="close">&times;</span>
+    <div class="container">
+        
+        <div class="search-container">
+            <input class="user-search" type="text" placeholder="Search...">
+            <span class="search-icon">🔍</span>
+        </div>
+
+        <!-- Scrollable user container -->
+        <div class="user-container" id="user-container">
+            <!-- User sections will be generated dynamically here -->
+        </div>
+    </div>
+
+
+    <!-- Role Modal -->
+    <div class="modal role-modal" style="display: none;">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2>Edit Role</h2>
+            <p>Pick a role:</p>
+            <select id="new-role">
+                <option value="" disabled selected>Pick a role</option>
+
+                <option value="admin">Admin</option>
+                <option value="sub-admin">Sub-Admin</option>
+                <option value="employee">Employee</option>
+            </select>
+
+           
+            <button class="set-button" id="set-role-button">Set</button>
+        </div>
+    </div>
+
+    <script type="module" src="firedelete.js" defer></script>
+    <script type="module" src="delete.js"defer></script>
+
+</body>
+</html>

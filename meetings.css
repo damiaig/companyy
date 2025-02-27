@@ -1,0 +1,930 @@
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #3a3732; /* Light background color */
+ 
+  
+    overflow-x: hidden;
+
+}
+
+
+[data-theme="light"] body, [data-theme="light"] html {
+    background-color: 	#BEB7AC;
+   
+  }
+  
+  [data-theme="light"] .h1, [data-theme="light"] .close, [data-theme="light"] .mem-h  {
+ color: 	#292629;
+   
+  }
+
+
+  [data-theme="light"] .box1,  [data-theme="light"] .modal, [data-theme="light"] .participant-waiting-room, [data-theme="light"] .creator-waiting-room  {
+    background-color: 	#DDD9D3;
+   
+  }
+[data-theme="light"] .close-room-modal svg{
+    fill: #292629 !important;
+}
+
+
+  [data-theme="light"] .box1 label, 
+  [data-theme="light"] .box1 .tit,
+  [data-theme="light"] .box1 .selected-name,
+  [data-theme="light"] .modal, 
+  [data-theme="light"] .participant-waiting-room span {
+color: #292629;
+   font-weight: 300;
+}
+
+[data-theme="light"] .participant-waiting-room h1,  [data-theme="light"] .creator-waiting-room h1{
+    color: #292629;
+}
+
+[data-theme="light"] .naaa{
+    color:white !important;
+}
+.close {
+    color: #fff;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 3em;
+    cursor: pointer;
+}
+
+.h1{
+ text-align: center;
+  
+    color: white;
+}
+
+.page-flex-box{
+
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 3 columns */
+    grid-column-gap: 10px; /* Horizontal space between buttons */
+    justify-items: center; /* Center the buttons horizontally */
+    align-items: center;   /* Center the buttons vertically */
+}
+
+
+@media (max-width: 800px) {
+    .page-flex-box{
+    grid-template-columns: repeat(1, 1fr); /* 3 columns */;
+    grid-row-gap: 10px;
+    grid-template-rows: repeat(2, 1fr);
+}}
+
+
+@media (max-width: 400px) {
+
+
+    .theme-toggle {
+     
+        top:20px;}
+    .search{
+        border: 0px;
+        border-radius: 50px;
+      
+    margin-left: auto  !important;
+    margin-right: auto  !important;
+        text-align: center;
+        margin-top: 10px; /* Space above search bar */
+        width: 275px  !important;
+    }
+
+    .name-container{
+        border: 0px;
+        border-radius: 50px;
+      
+    margin-left: auto  !important;
+    margin-right: auto  !important;
+        text-align: center;
+        margin-top: 50px; /* Space above search bar */
+        width: 265px !important;;
+    }
+    
+    .name-meeting{
+        border: 0px !important;
+        background-color: #3a3732;
+        font-size: 15px;
+        font-weight: 200 !important;
+        color: white;
+        margin-left: auto  !important;
+        margin-right: auto  !important;
+        top: -15px;
+     
+    position: relative;
+    border-radius: 40px;
+       padding: 10px;
+        width: 250px !important; /* Full width for search bar */
+        outline: none; /* Removes focus glow effect */
+    }
+    .search-bar {
+        border: 0px !important;
+        background-color: #3a3732;
+        font-size: 15px;
+        font-weight: 200 !important;
+        color: white;
+        margin-left: auto  !important;
+        margin-right: auto  !important;
+        top: -15px;
+        margin: auto;
+    position: relative;
+    border-radius: 40px;
+       padding: 10px;
+        width: 270px !important; /* Full width for search bar */
+        outline: none; /* Removes focus glow effect */
+    }
+    .theme-toggle{
+        right:5px !important;
+    }
+    .div{
+        width: 290px !important;
+    }
+    .selected-name{
+        margin-left:100px !important;
+    }
+
+    .meeting-label{
+        left: 0px !important;
+    }
+    
+    .search-result-container {
+        
+        position: relative;
+        top: 10px;
+        width: 320px;
+        margin: auto;
+        z-index: 10;
+    }
+    
+    .search-result {
+        background-color: #58544d;
+        border-radius: 40px;
+        padding: 10px;
+        width: 250px !important;
+        margin-left: 15px;
+        margin-right: auto  !important;
+        border: 5px solid #292623;
+        display: none;
+     height: 90px ;
+        overflow-y: auto;
+        transition: max-height 0.3s ease;
+    }
+    
+    .meeting-preview-members{
+        background-color: #58544d;
+        border-radius: 40px;
+        padding: 10px;
+        width: 250px !important;
+    justify-content: center;
+    align-items: center;
+        border: 5px solid #292623;
+        margin-top: 30px;
+        margin-left: auto !important;
+        margin-right: auto  !important;
+     height: 90px ;
+        overflow-y: auto;
+        transition: max-height 0.3s ease;
+    }
+    .meeting-preview-members .user-inbox{
+    
+    left:-25px
+    }
+    
+
+ .user-inbox {
+        margin-left: -17px !important;
+    
+            }
+
+    #selected-users {
+        background-color: #58544d;
+        border-radius: 40px;
+        padding: 10px;
+        width: 250px !important;
+    
+    
+        border: 5px solid #292623;
+        margin-top: 30px;
+        margin-left: auto !important;
+        margin-right: auto  !important;
+     height: 90px ;
+        overflow-y: auto;
+        transition: max-height 0.3s ease;
+    }
+    .search-bar::-webkit-search-cancel-button {
+    display: none;}
+    
+    .h1{
+        font-size: 21px;
+    }
+
+
+
+    .tit{
+        font-family: 'Roboto', sans-serif; /* Apply the Roboto font */
+    font-weight: 200;                 /* Use the lightest weight of Roboto */
+    font-style: normal;               /* Set normal font style */
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 20px !important;
+    color: white;
+    width: 250px !important;       /* Set the width of the container */
+    word-wrap: break-word; /* Allow long words to wrap */
+    white-space: normal; /* Ensure text wraps */
+}}
+input, textarea {
+    font-size: 16px !important; /* Prevents zooming */
+}
+
+html {
+    -webkit-text-size-adjust: 100% !important; /* Stops iOS from resizing text */
+}
+.action-buttons {
+    display: flex;           /* Use flexbox for alignment */
+    justify-content: center; /* Center buttons horizontally */
+    gap: 20px;               /* Add space between buttons */
+    margin-top: 20px;        /* Add space above buttons if needed */
+}
+.marg{
+    position: relative;
+ top: -10px !important;
+}
+.act-but {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #3a3732;
+    color: white;
+    cursor: pointer;
+}
+
+.act-but:hover {
+    background-color: #58544d;
+}
+
+.pending-list{
+    background-color: #58544d;
+    border-radius: 40px;
+    padding: 10px;
+    width: 90%;
+    overflow-x: hidden;
+    border: 5px solid #292623;
+    margin-left: auto;
+    margin-right: auto;
+ height: 75vh ;
+    overflow-y: auto;
+ 
+}
+
+.remove-user{
+ font-size: 2em; 
+ color:white; 
+ position:absolute;
+ right:10px;
+}
+
+.meeting-label{
+
+    width: 130px !important ;
+    height: 50px;
+    
+        margin-left:auto  !important;
+        margin-right: auto  !important;
+        color: white;
+
+    font-family: 'Roboto', sans-serif; /* Apply the Roboto font */
+    font-weight: 200;                 /* Use the lightest weight of Roboto */
+    font-style: normal;               /* Set normal font style */
+    font-size: 20px;
+    position: relative;
+ 
+    top: -20px;
+    color: white;
+ 
+}
+
+
+.div{
+    width: 320px !important;
+    
+    margin-left: auto;
+    margin-right: auto;
+
+ height: 120px !important;
+}
+
+
+.selected-name{
+display: none;
+
+    font-family: 'Roboto', sans-serif; /* Apply the Roboto font */
+    font-weight: 200;                 /* Use the lightest weight of Roboto */
+    font-style: normal;               /* Set normal font style */
+    font-size: 20px;
+
+width: 140px !important ;
+height: 50px;
+position: relative;
+top:25px;
+    margin-left:auto  !important;
+    margin-right: auto  !important;
+    color: white;
+ 
+}
+
+.name-container{
+    border: 0px;
+    border-radius: 50px;
+  
+margin-left: auto  !important;
+margin-right: auto  !important;
+    text-align: center;
+    margin-top: 80px; /* Space above search bar */
+    width: 295px;
+}
+
+.name-meeting{
+    border: 0px !important;
+    background-color: #3a3732;
+    font-size: 15px;
+    font-weight: 200 !important;
+    color: white;
+    margin-left: auto  !important;
+    margin-right: auto  !important;
+    top: -15px;
+ 
+position: relative;
+border-radius: 40px;
+   padding: 10px;
+    width: 270px; /* Full width for search bar */
+    outline: none; /* Removes focus glow effect */
+}
+
+.tit {
+    font-family: 'Roboto', sans-serif; /* Apply the Roboto font */
+    font-weight: 200;                 /* Use the lightest weight of Roboto */
+    font-style: normal;               /* Set normal font style */
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 24px;
+    color: white;
+    width: 360px;       /* Set the width of the container */
+    word-wrap: break-word; /* Allow long words to wrap */
+    white-space: normal; /* Ensure text wraps */
+}
+
+
+.box1{
+    width: 95%;
+ border-radius: 45px;
+    height: 80vh;
+    overflow-x: hidden;
+    background-color: #292929;
+    overflow-y: auto;
+}
+
+
+
+.search{
+    border: 0px;
+    border-radius: 50px;
+  
+margin-left: auto  !important;
+margin-right: auto  !important;
+    text-align: center;
+    margin-top: 35px; /* Space above search bar */
+    width: 295px;
+}
+.search-bar {
+    border: 0px !important;
+    background-color: #3a3732;
+    font-size: 15px;
+    font-weight: 200 !important;
+    color: white;
+    margin-left: auto  !important;
+    margin-right: auto  !important;
+    top: -15px;
+    margin: auto;
+position: relative;
+border-radius: 40px;
+   padding: 10px;
+    width: 290px; /* Full width for search bar */
+    outline: none; /* Removes focus glow effect */
+}
+
+
+
+.search-result-container {
+    
+    position: relative;
+    top: 10px;
+    width: 320px;
+    margin: auto;
+    z-index: 10;
+}
+
+.search-result {
+    background-color: #58544d;
+    border-radius: 40px;
+    padding: 10px;
+    width: 290px;
+    overflow-x: hidden;
+    border: 5px solid #292623;
+    display: none;
+ height: 90px ;
+    overflow-y: auto;
+    transition: max-height 0.3s ease;
+}
+
+.meeting-preview-members{
+    background-color: #58544d;
+    border-radius: 40px;
+    padding: 10px;
+    width: 290px;
+justify-content: center;
+align-items: center;
+    border: 5px solid #292623;
+    margin-top: 30px;
+    margin-left: -5px;
+ height: 90px ;
+    overflow-y: auto;
+    transition: max-height 0.3s ease;
+}
+.meeting-preview-members .user-inbox{
+
+left:-25px
+}
+
+#selected-users {
+    background-color: #58544d;
+    border-radius: 40px;
+    padding: 10px;
+    width: 290px;
+    overflow-x: hidden;
+    border: 5px solid #292623;
+    margin-top: -10px;
+    
+    margin-left: auto  !important;
+    margin-right: auto  !important;
+ height: 90px ;
+    overflow-y: auto;
+    transition: max-height 0.3s ease;
+}
+.search-bar::-webkit-search-cancel-button {
+display: none;}
+
+.user-inbox {
+
+    position: relative;
+    left: 5% !important;
+    margin-top: 5px !important;
+    margin-bottom: 15px !important;
+    width: 250px;
+    background-color: #3a3732;
+    border-radius: 50px;
+    cursor: pointer;
+   /* Same height as the profile-pic */
+    display: flex; /* Align items inside */
+    align-items: center; /* Center vertically */
+    padding-left: 10px;
+
+}
+
+.profile-pic {
+    width: 35px; /* Adjust width to fit inside user-inbox */
+    height: 35px; /* Ensure it’s a circle */
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 15px; /* Space between profile pic and text */
+}
+
+.profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure image covers entire circle */
+}
+.name{
+    font-size: 16px !important;
+    color: white;
+    position: relative;
+    left: -7px;
+}
+
+ 
+.meeting-but {
+
+    position: relative;
+    left: 0px !important;
+    margin-top: 5px !important;
+    margin-bottom: 10px !important;
+    width: 97%;
+    background-color: #3a3732;
+    border-radius: 50px;
+    height: 60px;
+    display: flex; /* Align items inside */
+    align-items: center; /* Center vertically */
+    padding-left: 10px;
+}
+
+.meeting-buttons {
+    margin-right: 20px;
+    margin-left: auto; /* Push buttons to the right */
+    display: flex; /* Ensure buttons are aligned horizontally */
+    gap: 5px; /* Add space between buttons */
+}
+.meeting-name-created, .meeting-name-invited{
+
+    font-family: 'Roboto', sans-serif; /* Apply the Roboto font */
+    font-weight: 200;                 /* Use the lightest weight of Roboto */
+    font-style: normal;  
+    color: white;
+font-size: 17px;
+    position: relative;
+
+    left: 8px;
+    }
+    
+.meet-but {
+    padding: 9px 9px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    background-color: #58544d;
+    color: white;
+    cursor: pointer;
+}
+
+.meet-but:hover {
+    background-color: #706c63; /* Change color on hover */
+}
+
+
+
+.modal-overlay {
+    position: fixed;
+    overflow-y: auto;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal {
+    background: #3a3732;
+    color: white;
+    padding: 10px;
+    width: 310px;
+    height: 400px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    overflow-x: hidden;
+}
+
+.modal-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.modal-actions button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.modal-actions .confirm-meeting-button {
+    background-color: #4caf50;
+    color: white;
+}
+
+.modal-actions .close-modal-button {
+    background-color: #f44336;
+    color: white;
+}
+
+.members-list .user-inbox{
+margin-left: -18px;
+
+}
+
+.creator-waiting-room, .participant-waiting-room{
+    margin: auto;
+    background: #3a3732;
+    color: white;
+    padding: 10px;
+  width: 270px !important;
+    height: 80vh;
+    border-radius: 20px;
+    overflow-y: scroll;
+    text-align: center;
+    overflow-x: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);   
+}
+
+
+.met-buts {
+    padding: 15px 17px;
+    font-size: 17px;
+    border: none;
+    border-radius: 50%;
+    background-color: #58544d;
+    color: white;
+    cursor: pointer;
+}
+
+.meet-but:hover {
+    background-color: #706c63; /* Change color on hover */
+}
+
+.camera{
+    background: #292929;
+    margin-left: auto  !important;
+    margin-right: auto  !important;
+
+    padding: 10px;
+    width: 150px;
+    height: 150px;
+    border-radius: 20px;
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);  
+}
+
+.camera-off{
+ position: relative;
+ top:25px;
+
+}
+
+.confirm-start, .confirm-join{
+    padding: 15px 25px;
+    font-size: 17px;
+    border: none;
+    border-radius: 10px;
+    background-color: #58544d;
+    color: white;
+    cursor: pointer;
+    position: relative;
+    top:-20px
+}
+
+
+.confirm-start:hover, .confirm-join:hover, .met-buts:hover {
+    background-color: #706c63; /* Change color on hover */
+}
+
+ video {
+    left: -100px;
+    border-radius: 20px;
+    position: relative;
+    top:-115px;
+    
+  }
+
+  
+
+  .modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .status{
+    position: relative;
+    top: -20px;
+    font-family: 'Roboto', sans-serif; /* Apply the Roboto font */
+    font-weight: 200;                 /* Use the lightest weight of Roboto */
+    font-style: normal;               /* Set normal font style */
+    text-align: center;
+  
+    font-size: 20px;
+    color: white;
+  }
+  
+  .modal-container.hidden {
+    display: none;
+  }
+  
+  .creator-waiting-room {
+    margin: auto;
+    background: #3a3732;
+    overflow-x: hidden;
+    color: white;
+    padding: 8px;
+    width: 270px !important;
+    height: 80vh;
+    border-radius: 20px;
+    overflow-y: auto;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+
+
+.close-room-modal{
+    position: relative;
+    right:110px;
+margin-top:10px;
+
+cursor: pointer;}
+/* The switch - the box around the slider */
+.theme-toggle {
+    cursor: pointer !important;
+    top:25px;
+    right:5px;
+    position: absolute;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .theme-toggle input {
+    cursor: pointer !important;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .theme-toggle .slider {
+    position: absolute;
+    cursor: pointer !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+  
+  .theme-toggle .slider:before {
+    cursor: pointer !important;
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: #292623;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+  
+  #theme-switch:checked + .slider {
+    cursor: pointer !important;
+    background-color: #292629;
+  }
+  
+  #theme-switch:focus + .slider {
+    cursor: pointer !important;
+    box-shadow: 0 0 1px #292629;
+  }
+  
+  #theme-switch:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    cursor: pointer !important;
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+    background-color: #ccc; /* Change circle color to #ccc */
+  
+  }
+
+  /* Rounded sliders */
+  .slider.round {
+    cursor: pointer !important;
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    cursor: pointer !important;
+    border-radius: 50%;
+  }
+
+
+
+.mem-h{
+    position: relative;
+     top: 10px; 
+     font-size: 22px;
+}
+.members-list{
+    left: -5px;
+    background-color: #58544d;
+    overflow-x: hidden;
+    border-radius: 40px;
+    padding: 10px;
+    width: 250px;
+    position: relative;
+margin-bottom: 50px;
+    border: 5px solid #292623;
+    display: block;
+ height: 90px ;
+ position: relative;
+ top: 20px; 
+    overflow-y: auto;
+    transition: max-height 0.3s ease;
+}
+
+
+
+
+
+.loader-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000; /* Ensure it appears above all content */
+}
+
+.loader {
+    top:35%;
+    position: relative;;
+    margin: auto;
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid goldenrod; /* Blue */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+
+
+
+.yet-load {
+
+    top:35%;
+    position: relative;
+    text-align: center;
+    color: white;
+    margin-top: 15px;
+    display: none; /* Hidden initially */
+}
+
+.Reload-page {
+    top:35%;
+    color: white;
+    font-size: 17px;
+    font-weight: 600;
+    margin-top: 10px;
+    height: 22px;
+    width: 110px;
+    background-color: white;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 10px;
+    text-decoration: none;
+    display: none; /* Hidden initially */
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    color: black;
+}
+
+.Reload-page:hover {
+    color: lightgray;
+}

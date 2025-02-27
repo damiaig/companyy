@@ -1,0 +1,541 @@
+/* Overall Page Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #58544d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full height */
+ 
+    width: 100%; /* Remove default margin */
+}
+
+.container {
+    text-align: center;
+    position: relative;
+}
+
+.close {
+    color: #fff;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 3em;
+    cursor: pointer;
+    z-index: 999;
+}
+input, textarea {
+    font-size: 16px !important; /* Prevents zooming */
+}
+
+html {
+    -webkit-text-size-adjust: 100% !important; /* Stops iOS from resizing text */
+}
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+
+
+.user-search {
+    padding: 5px;
+
+
+    outline: none;
+}
+
+input {
+    font-size: 19px;
+    font-weight: 300; /* Make the input text bold */
+    background-color: white;
+    color: #292623; /* Color for input text */
+    height: 40px; /* Height of input fields */
+    margin-bottom: 15px; /* Space below inputs */
+    border: 0; /* Remove default border */
+    border-radius: 30px; /* Rounded corners */
+    padding-left: 10px; /* Padding for input text */
+}
+
+
+/* Placeholder Styling */
+input::placeholder {
+    font-weight: 300;
+    color: #292623;
+    padding-left: 10px; /* Padding for placeholder */
+    font-size: 18px; /* Font size for placeholder */
+}
+
+
+.search-icon {
+    margin-top: -10px;
+    margin-left: -45px;
+    font-size: 1.5em;
+}
+
+main {
+    display: flex;
+    flex-direction: column; /* Aligns children vertically */
+    align-items: center;
+}
+
+.user-container {
+ 
+    width: 500px; /* Set a fixed width for the container */
+    max-height: 400px; /* Set a max height to enable scrolling */
+    overflow-y: auto; /* Enable vertical scrolling */
+    border-radius: 20px; /* Rounded corners */
+    background-color: #3a3732; /* Light background for the container */
+    padding: 10px; /* Padding inside the container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow for a nice effect */
+}
+
+.users {
+    border-radius: 20px; /* Rounded corners */
+    margin-left: auto !important;
+    margin-right: auto !important;
+    background-color: #292623;
+width: 90%;
+    color: #fff;
+    padding: 20px;
+    margin-bottom: 20px; /* Space between user sections */
+}
+
+.user-info {
+    margin-left: -10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+
+.user-details {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.user-detail-row {
+    margin-top: 5px;
+    border-bottom: 2px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 7px;
+    padding-left: 1px;
+    padding-right: 10px;
+    margin-left: -5px;
+}
+
+#user-detail-row1 {
+    border-bottom: 0px !important;
+
+
+    
+}
+
+.user-details p {
+    margin: 0;
+}
+
+.changer {
+    position: relative;
+    background-color: #555;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 19px;
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 50%;
+left: -10px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.changer:hover {
+    background-color: #777;
+}
+
+.user-buttons-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.user-buttons {
+    font-weight: 700;
+    border-radius: 30px;
+    width: 100%;
+    padding: 10px 10px;
+    background-color: #444;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.user-buttons:hover {
+    background-color: #666;
+}
+
+.name {
+    width: 100%; /* Updated for consistency */
+    text-align: center;
+    margin-top: -10px;
+    font-size: 19px;
+    font-weight: 600;
+}
+
+@media (max-width: 650px) {
+    .user-container {
+        width: 90vw; /* Responsive width for smaller screens */
+    }
+}
+
+.user-info p {
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+.modal p{
+    font-weight: 300;
+    width: 100px;
+right:-15px;
+position: relative;
+} 
+
+
+#new-role{
+   position: relative;
+   left: 35%;
+   right: 35%;
+ top: -35px;
+        font-size: 15px;
+        font-weight: 300; /* Make the input text bold */
+        background-color: white;
+        color: #292623; /* Color for input text */
+        height: 25px; /* Height of input fields */
+        width: 100px;
+        border: 0; /* Remove default border */
+        outline: none;
+        border-radius: 30px; /* Rounded corners */
+        cursor: pointer;
+        padding-left: 10px; /* Padding for input text */
+    }
+    
+    /* Placeholder Styling */
+
+  
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    color: #fff;
+    background-color: #3a3732;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    height: 150px;
+    position: relative;
+}
+
+[data-theme="light"] .user-container {
+    background-color: 	#DDD9D3	!important;
+   
+  }
+  [data-theme="light"] .users {
+    background-color: 	#EAE6E3	!important;
+   
+  }
+
+
+  [data-theme="light"] .users {
+ color: 	#292623	!important;
+   
+  }
+
+.modal-close {
+    color: #fff;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 2.7em;
+}
+
+.set-button {
+    margin-left: 5px;
+    margin-top: 5px;
+    position: fixed;
+    height: 37px;
+    font-weight: 700;
+    font-size: 17px;
+    width: 100px;
+    background-color: #8c52ff; 
+    color: white; /* White text color */
+    border: none; /* Remove default border */
+    padding: 10px; /* Padding inside button */
+    border-radius: 20px; /* Rounded corners for the button */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+.set-button:hover {
+    background-color: #7a44e1; /* Darker shade of purple on hover */
+    transform: scale(1.05); /* Slightly increase size on hover */
+}
+
+
+
+
+
+@media (max-width: 430px) {
+    .user-detail-row {
+        display: flex;
+        flex-direction: column; /* Stack items vertically */
+
+    }
+
+    .changer {
+    top: 10px; 
+    left: 5px;
+       
+    }
+
+    .users {
+      position: relative;
+      left:-5px;
+        width: 90%;
+    }
+    .user-detail-row {
+        margin-top: 5px;
+        border-bottom: 2px solid white;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 2px !important;
+        padding-left: -3px;
+        padding-right: 7px;
+        margin-left: -2px;
+    }
+
+    .user-detail-row p {
+        margin-bottom: 5px; /* Add some spacing between lines */
+    }
+
+    .line-break {
+        display: block; /* Ensure text after Role, Email, or Password starts on a new line */
+    }
+}
+
+
+
+
+/* The switch - the box around the slider */
+.theme-toggle {
+    cursor: pointer !important;
+    top:20px;
+    left:20px;
+    position: absolute;
+    z-index: 9999;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .theme-toggle input {
+    cursor: pointer !important;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .theme-toggle .slider {
+    position: absolute;
+    cursor: pointer !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+  
+  .theme-toggle .slider:before {
+    cursor: pointer !important;
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: #292623;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+  
+  #theme-switch:checked + .slider {
+    cursor: pointer !important;
+    background-color: #292629;
+  }
+  
+  #theme-switch:focus + .slider {
+    cursor: pointer !important;
+    box-shadow: 0 0 1px #292629;
+  }
+  
+  #theme-switch:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    cursor: pointer !important;
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+    background-color: #ccc; /* Change circle color to #ccc */
+  
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    cursor: pointer !important;
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    cursor: pointer !important;
+    border-radius: 50%;
+  }
+  
+  
+  
+  [data-theme="light"]   .user-detail-row  {
+
+    border-bottom: 2px solid #292623;
+  }
+
+  [data-theme="light"] body,   [data-theme="light"] html {
+    background-color: 	#BEB7AC;
+   
+  }
+      
+  [data-theme="light"] .close{
+    color: 	#292623	;
+     
+    }
+ 
+
+
+    [data-theme="light"] .user-search::placeholder {
+        color: #EAE6E3; /* Background color for the section */
+      
+          }
+
+       
+      
+          [data-theme="light"] .user-search  {
+            color: #EAE6E3; /* Background color for the section */
+            background-color: #292623;
+              }
+          
+
+
+          [data-theme="light"] .modal-content  {
+            color: #292623; /* Background color for the section */
+            background-color: #DDD9D3;
+              }
+
+
+              [data-theme="light"] .modal-close  {
+                color: #292623; /* Background color for the section */
+                 
+                  }
+
+
+
+  .loader-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000; /* Ensure it appears above all content */
+}
+
+.loader {
+    top:35%;
+    position: relative;;
+    margin: auto;
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid goldenrod; /* Blue */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+
+
+
+.yet-load {
+
+    top:35%;
+    position: relative;
+    text-align: center;
+    color: white;
+    margin-top: 15px;
+    display: none; /* Hidden initially */
+}
+
+.Reload-page {
+    top:35%;
+    color: white;
+    font-size: 17px;
+    font-weight: 600;
+    margin-top: 10px;
+    height: 22px;
+    width: 110px;
+    background-color: white;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 10px;
+    text-decoration: none;
+    display: none; /* Hidden initially */
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    color: black;
+}
+
+.Reload-page:hover {
+    color: lightgray;
+}

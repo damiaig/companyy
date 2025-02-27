@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+
+    <title>Login</title>
+</head>
+<body>
+    <div class="loader-overlay" style="display: none;">
+        <div class="loader"></div>
+        <p class="yet-load">Hasn't yet loaded?</p>
+        <a class="Reload-page">Reload page</a>
+    </div>
+    <div class="container">
+       
+        <main>
+            <form id="login-form">
+                <h1>Login</h1>
+                <input type="email" class="email" required placeholder="Email">
+                <input type="password" class="password" required placeholder="Password">
+                <div type="button" id="toggle-password">Show Password</div>
+                  <button type="submit">Login</button>
+            </form>
+            <div id="message"></div>
+
+        </main>
+    </div>
+
+    <!-- Include Firebase authentication script -->
+    <script type="module" src="firebase.js"></script>
+    <script>
+        // Get the password input and toggle button
+const passwordInput = document.querySelector('.password');
+const togglePasswordButton = document.getElementById('toggle-password');
+
+// Add click event listener to the toggle button
+togglePasswordButton.addEventListener('click', () => {
+    // Check the current type of the password input
+    const isPasswordVisible = passwordInput.type === 'text';
+
+    // Toggle the input type
+    passwordInput.type = isPasswordVisible ? 'password' : 'text';
+
+    // Update button text based on the current state
+    togglePasswordButton.textContent = isPasswordVisible ? 'Show Password' : 'Hide Password';
+
+})
+
+    </script>
+    <script type="module" src="login.js" defer></script> <!-- Add type="module" here -->
+ 
+</body>
+</html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+ <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="user.css" rel="stylesheet">
+
+        <title>ADMIN PAGE</title>
+    </head>
+    <body>
+      <div class="loader-overlay" style="display: none;">
+        <div class="loader"></div>
+
+    </div>
+
+ 
+
+    <div class="divaaa">  <div class="button-grid-visible" >
+    
+      <span class="texter"> <p class="ddd" style="color:black">CHANGE THE THEME</p>    <label class="theme-toggle2">
+             
+        <input type="checkbox" id="theme-switch2">
+        <span class="slider round"></span>
+    </label>
+    </span>
+     
+    <button class="user-buttons profile-settingss">
+      <h1>Profile Settings</h1>
+      <p>Profile picture,<br> password,...</p>
+  </button>
+        <button class="user-buttons" id="user-management-button" onclick="window.location.href='create1495028484848844343.html'">
+            <h1>User Creation</h1>
+            <p>Create, manage<br> employees</p>
+        </button>
+    
+        <button class="user-buttons" id="user-delete-button" onclick="window.location.href='delete-user.html'">
+            <h1>User Management</h1>
+            <p>Delete inactive or<br> unauthorized users</p>
+    
+        </button>
+    
+    
+        <button class="user-buttons" id="user-messages-button" onclick="window.location.href='messages.html'">
+ 
+     
+            <h1>Messaging</h1>
+            <p>Message employees<br> and sub-admins</p>
+         <!-- Unread counter -->
+    
+        </button>
+    
+        <button class="user-buttons" onclick="window.location.href='meetings.html'">
+      
+            <h1>Meetings</h1>
+            <p>Host and schedule<br> meetings</p>
+        </button>
+    
+       
+        <button class="user-buttons"  id="logout-button2">
+            <h1>Logout</h1>
+            <p>Log out of your account</p>
+        </button>
+        
+    
+    </div></div>
+   
+        <div class="container">
+        
+            <header>
+  
+              <div class="hamburger-menu" >
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+      
+                
+                <div class="profile">
+  
+               
+
+             
+
+    
+                
+                    <div class="profile-pic">
+                        <img id="profile-picture" src="user_profile_-removebg-preview.png" alt="Profile Picture" class="profile-picture">
+                    </div>
+                    <div class="text-profile">
+                        <h1 class="name">...</h1>
+                        <p class="role">User role: <span class="user-role">(........)</span></p> <!-- This will be updated -->
+                    </div>
+                </div>
+                
+            </header>
+
+
+
+ 
+            <div class="main">
+                <div class="button-grid">
+                  <span class="texter"> <p class="ddd">CHANGE THE THEME</p>    <label class="theme-toggle">
+                    <input type="checkbox" id="theme-switch">
+                    <span class="slider round"></span>
+                </label>
+              </span>
+                 
+                    <button class="user-buttons profile-settings">
+                        <h1>Profile Settings</h1>
+                        <p>Profile picture,<br> password,...</p>
+                    </button>
+                    <button class="user-buttons" id="user-management-button" onclick="window.location.href='create1495028484848844343.html'">
+                        <h1>User Creation</h1>
+                        <p>Create, manage<br> employees</p>
+                    </button>
+
+                    <button class="user-buttons" id="user-delete-button" onclick="window.location.href='delete-user.html'">
+                        <h1>User Management</h1>
+                        <p>Delete inactive or<br> unauthorized users</p>
+
+                    </button>
+           
+
+                    <button class="user-buttons" id="user-messages-button" onclick="window.location.href='messages.html'">
+      <span class="unread-counter2" style="display:none"></span>
+                 
+                        <h1>Messaging</h1>
+                        <p>Message employees<br> and sub-admins</p>
+                     <!-- Unread counter -->
+ 
+                    </button>
+       
+                    <button class="user-buttons" onclick="window.location.href='meetings.html'">
+                        <span class="unread-group-counter2" style="display:none"></span>
+                        <h1>Meetings</h1>
+                        <p>Host and schedule<br> meetings</p>
+                    </button>
+                
+                   
+                    <button class="user-buttons" id="logout-button">
+                        <h1>Logout</h1>
+                        <p>Log out of your account</p>
+                    </button>
+                    
+                </div>
+     
+
+            <!-- Profile Settings Modal -->
+           <!-- Profile Settings Modal -->
+
+
+            <div class="announcement-page">
+            <div class="post-von"><span class="post-buting" style="cursor: pointer;">+</span>
+            <p>Post</p>
+            </div>
+                <div class="post">
+               
+        
+
+        </div>
+            </div>
+
+          </div>
+
+            <div id="modal-profile-setting" class="modal">
+              <div class="modal-content">
+                  <span class="close">&times;</span>
+                  <h2>Profile Settings</h2>
+                  <form id="profile-form">
+                      <!-- Profile Picture Input -->
+                    <!-- Profile Picture Input -->
+          <label for="profile-picture-input">Change Profile Picture:</label>
+          <div class="file-upload-wrapper">
+              <span class="upload-trigger">+</span>
+              <input type="file" id="profile-picture-input" accept="image/*" hidden>
+          </div>
+          <br>
+          
+                      <!-- Profile Name Input -->
+                      <label for="name-input">Change Profile Name:</label>
+                      <input type="text" id="name-input" max="18" placeholder="Enter new name">
+          
+          
+              
+                      <!-- Preview Section -->
+                      <h3>Preview</h3>
+                      <div class="preview-container">
+                          <img id="profile-preview-picture" src="user_profile_-removebg-preview.png" alt="Profile Preview" class="profile-picture">
+                          <h4 id="profile-preview-name">Loren Ipsudum</h4>
+                      </div>
+                      
+          
+                      <button class="submit" type="submit">Save Changes</button>
+                  </form>
+              </div>
+          </div>
+
+  <!-- Modal -->
+  <div id="post-modal" class="modalll">
+    <div class="modalll-content">
+      <span class="close-button" >&times;</span>
+      <!-- Buttons to choose post type -->
+      <div id="button-section">
+        <button class="post-with-image-button">Post with Image</button>
+        <button class="post-without-image-button" >Post without Image</button>
+      </div>
+      <!-- Sections for post types -->
+      <div id="post-with-image" class="post-section" style="display: none;">
+        <span class="go-back-button">
+          <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="black">
+            <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z" />
+          </svg>
+        </span>
+        <input class="import-input" type="file" accept="image/*" hidden id="image-input">
+        <div class="import-button" id="trigger-file-input">Select an image</div>
+        <div class="post-pic-select">
+          <img id="image-select" src=""  class="image-select" >
+          <span class="jjjjjj">SELECT AN IMAGE</span>
+        </div>
+        <div class="descrip">
+          <span class="tit">Description:</span>
+          <textarea id="post-with-image-description" class="post-descrip" maxlength="190" placeholder="Type your description (max 190 characters)"></textarea>
+        </div>
+  
+  
+        <button class="posttt">Post</button>
+      </div>
+      
+
+      
+      <div id="post-without-image" class="post-section" style="display: none;">
+        <span class="go-back-button">
+          <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="black">
+            <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z" />
+          </svg>
+        </span>
+
+      
+          <div class="cover-title">
+          <p class="toto">Title:</p>
+            <textarea id="title-text" class="title-text" maxlength="17" placeholder="(max 17 characters)"></textarea>
+  
+ </div>               <div class="descrip-without">
+          <span class="tit-without">Description:</span>
+          <textarea id="post-without-image-description" class="post-without-descrip" maxlength="500" placeholder="(max 500 characters)"></textarea>
+        </div>
+        <button class="posttt">Post</button>
+      </div>
+      
+    </div>
+  </div>
+</div>
+<div class="comment-modal " id="commentModal">
+
+  <div class="comment-modal-content">
+    <span >
+      <svg class="close-comment-button" xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="black">
+        <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z" />
+      </svg>
+    </span>
+    <div class="hq">Comments</div>
+   <div class="comment-list">
+
+   </div>
+<textarea maxlength="93" class="comment-input" placeholder="Share a comment"></textarea>
+<span class="send-comment"><svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px" fill="white"><path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z"/></svg></span>
+  </div>
+</div>
+
+
+
+        <!-- Include Firebase and your custom scripts -->
+       
+        <script type="module" src="user.js" defer></script>
+        <script>// Logout and redirect to index.html
+
+// Logout and redirect to index.html
+
+const logoutButton2 = document.getElementById("logout-button2"); // Fix variable name
+if (logoutButton2) { // Ensure element exists before adding event listener
+    logoutButton2.addEventListener("click", function () {
+        sessionStorage.clear();
+        window.location.href = "index.html";
+    });
+}
+
+const logoutButton = document.getElementById("logout-button"); // Check for first logout button
+if (logoutButton) {
+    logoutButton.addEventListener("click", function () {
+        sessionStorage.clear();
+        window.location.href = "index.html";
+    });
+}
+
+  
+
+ 
+            </script>
+        
+    </body>
+</html>

@@ -1,0 +1,2230 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #3a3732; /* Light background color */
+    display: flex; /* Use flexbox for layout */
+
+    overflow-x: hidden;
+
+}
+input {
+    font-size: 16px !important; /* Prevents zooming */
+}
+
+html {
+    -webkit-text-size-adjust: 100% !important; /* Stops iOS from resizing text */
+}
+
+
+.sidebar .page-close{
+    display: none;
+}
+
+
+.setting-modal {
+    position: relative;
+    margin-top: 10px;
+ margin-bottom: -81px;
+margin-left: auto;
+margin-right: auto;
+    height: 50px;
+    width: 727px;
+    border-radius: 40px;
+ 
+z-index: 999999;
+  }
+
+/* For smaller screens */
+
+.sidebar {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    width: 410px;
+    height: 100vh;
+    background-color: #292623;
+    padding: 20px;
+    box-sizing: border-box;
+  /* Keeps sidebar scrollable if content exceeds viewport height */
+    display: flex;
+    flex-direction: column;
+}
+
+
+[data-theme="light"] .sidebar {
+    background-color: 	#EAE6E3;
+ 
+   
+  }
+
+ 
+
+  [data-theme="light"] .chat-box{
+    background-color: #EAE6E3 ;
+  }
+
+  [data-theme="light"] .group-profile svg,  [data-theme="light"] .go-back-inbox svg, [data-theme="light"]  .sidebar-tools svg,  [data-theme="light"] .chat-settings-modal svg, .delete-my-message svg {
+    fill: #292623 !important; /* Ensure it changes the SVG fill color */
+}
+
+
+ 
+
+
+
+  [data-theme="light"] .nothing,   [data-theme="light"] .inbox,   [data-theme="light"] .user-name,  [data-theme="light"] .group-name{
+     color: 	#292623;
+ 
+   
+  }
+
+  [data-theme="light"] .chat,   [data-theme="light"] body, [data-theme="light"] html{
+    background-color: 	#DDD9D3;
+
+  
+ }
+
+
+ [data-theme="light"] .down-line{
+    background-color: 	#292623;
+
+  
+ }
+
+ [data-theme="light"] .page-close,  [data-theme="light"] .page-close1, [data-theme="light"] .go-back-inbox, [data-theme="light"] .go-back-inbox {
+ color: 	#292623;
+
+  
+ }
+
+.page-close1{
+display: none;
+        cursor: pointer;
+             font-size: 3em;
+            color: white;
+            position: absolute; 
+           
+            right: 20px ;
+            top:10px ;
+        
+        }
+
+.chat.active {
+    transform: translateX(0);
+  }
+  .nothing{
+display: none;
+
+  }
+  .sidebar.fullscreen {
+    transform: translateX(0);
+    z-index: 3;
+    width: 100%;
+  }
+  
+  .go-back-inbox {
+    display: none;
+  }
+  
+  @media (max-width: 600px) {
+    
+    
+    
+
+    .chat .page-close{
+        display: none;
+    }
+
+    .nothing{
+        display: block;
+position:absolute;
+text-align: center;
+ font-size: 30px;
+left:60% !important;
+color: white;
+          }}
+
+
+          @media (max-width: 470px) {
+    
+    
+            .nothing{
+                display: none !important;
+       
+                  }
+                
+                .userrr-inbox{
+                    width: 95% !important;
+                }
+                }
+          @media (max-width: 500px) {
+    
+    
+            .nothing{
+                display: block;
+        position:absolute;
+        text-align: center;
+         font-size: 25px;
+        left:63% !important;
+        color: white;
+                  }}
+
+  @media (max-width: 700px) {
+    .sidebar {
+      width: 100% !important;
+  
+    }
+    
+    .nothing{
+        display: block;
+position:absolute;
+text-align: center;
+top:35%;
+left:55%;
+color: white;
+          }
+
+.chat{
+    display:none;
+}
+.sidebar .page-close1{
+    display: block;
+}
+    .go-back-inbox {
+      display: inline-block;
+      padding: 10px;
+      font-size: 18px;
+      cursor: pointer;
+      color: white;
+    }
+  
+    .chat.active {
+      z-index: 3;
+    }}
+
+.chat-container {
+    margin-top: -20px;
+    flex: 1; /* Take remaining space */
+    padding: 20px; /* Add padding to the chat container */
+}
+
+
+.sidebar-tools{
+margin-left: 5px;
+margin-right: auto;
+}
+
+ 
+.group-button{
+    left: 60px;
+    cursor: pointer;
+    position: relative; /* Keep it at the top left */
+    z-index: 1; /* Keep it above other elements */
+   
+}
+
+.inbox{
+    color:white;
+    margin-left: 5px;
+}
+
+.page-close{
+cursor: pointer;
+     font-size: 3em;
+    color: white;
+    position: absolute; 
+   
+    right: 20px ;
+    top:10px ;
+
+}
+
+.chat-close{
+
+    font-size: 3em;
+   color: white;
+   position: absolute; 
+  
+   right: 25px ;
+   top:20px ;
+
+}
+
+.search{
+    border: 0px;
+    border-radius: 50px;
+  
+margin-left: auto  !important;
+margin-right: auto  !important;
+    text-align: center;
+    margin-top: 10px; /* Space above search bar */
+    width: 274px !important;
+}
+.search-bar {
+    border: 0px !important;
+    background-color: #3a3732;
+    font-size: 16px;
+    font-weight: 200 !important;
+    color: white;
+    margin-left: auto  !important;
+    margin-right: auto  !important;
+    top: -15px;
+    margin: auto;
+position: relative;
+border-radius: 40px;
+   padding: 10px;
+    width: 270px !important; /* Full width for search bar */
+    outline: none; /* Removes focus glow effect */
+}
+
+
+
+.search-result-container {
+    
+    position: relative;
+    margin-top: 10px;
+    width: 274px !important;
+    margin-left: auto  !important;
+    margin-right: auto  !important;
+    z-index: 10;
+}
+
+.search-result {
+    position: relative;
+    left: -5px;
+    background-color: #58544d;
+    border-radius: 40px;
+    padding: 10px;
+    width: 260px;
+    max-height: 0;
+    border: 5px solid #292623;
+    display: none;
+ height: 90px ;
+ margin-left: auto  !important;
+ margin-right: auto  !important;
+    overflow-y: auto;
+    transition: max-height 0.3s ease;
+}
+
+
+
+.search-bar::-webkit-search-cancel-button {
+display: none;}
+
+.chat-box {
+    margin:auto ;
+    position: relative;
+    background-color: #292623; /* Border color */
+    padding: 15px; /* More padding for spaciousness */
+    border-radius: 40px; /* Rounded corners */
+    height: 410px; /* Limit height *
+    overflow-y: auto; /* Enable scrolling */
+    top: 30px; /* Space above chat box */
+    display: block; /* Initially hidden */
+    width: 700px; /* Full width for chat box */
+ 
+}
+
+.user-messaging-list{
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.chat{
+    width:90%;
+
+}
+
+.user-inbox {
+    position: relative;
+    left: 0px !important;
+    margin-top: 5px !important;
+    margin-bottom: 40px !important;
+    width: 250px;
+    background-color: #3a3732;
+    border-radius: 50px;
+   /* Same height as the profile-pic */
+    display: flex; /* Align items inside */
+    align-items: center; /* Center vertically */
+    padding-left: 10px;
+
+}
+
+.profile-pic {
+    width: 35px; /* Adjust width to fit inside user-inbox */
+    height: 35px; /* Ensure it’s a circle */
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 15px; /* Space between profile pic and text */
+}
+
+.profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure image covers entire circle */
+}
+.name{
+    font-size: 16px !important;
+    color: white;
+    position: relative;
+    left: -7px;
+}
+
+
+.requests{
+    border-top: 3px solid #3a3732;
+ margin-top:50px; 
+}
+
+
+.request{
+    color: white;
+}
+
+
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #3a3732;
+    display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 410px;
+    height: 105vh;
+    background-color: #292623;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: scroll;
+    position: relative;
+}
+
+.settings-button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #292623;
+    cursor: pointer;
+    z-index: 1}
+
+
+
+.inbox {
+    color: white;
+}
+
+.user-inbox {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    width: 250px;
+    background-color: #3a3732;
+    border-radius: 50px;
+    padding-left: 10px;
+}
+
+.profile-pic {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 15px;
+}
+
+.profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.name {
+    font-size: 18px;
+    color: white;
+}
+
+.requests {
+    border-top: 3px solid #3a3732;
+    margin-top: 50px;
+}
+
+.request {
+    color: white;
+}
+
+/* Chat Section */
+.chat {
+    flex-grow: 1;
+    
+}
+
+.search {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.search-bar {
+    border: 2px solid black;
+    border-radius: 40px;
+    padding: 10px;
+    width: 290px;
+}
+
+.chat-container {
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.chat-box {
+    border: 5px solid #292623;
+    display: flex;
+    flex-direction: column;
+    background-color: #292623;
+    padding: 15px;
+    border-radius: 40px;
+    height: 550px !important;
+    overflow-y: scroll;
+    width: 700px;
+    position: relative;
+    margin-top: -30px;
+}
+
+
+
+@media (max-height:790px) {
+    .chat-box{
+        height: 400px !important;
+    }
+}
+
+@media (max-height:660px) {
+
+    .chat-box{
+        height: 400px !important;
+    }
+}
+ 
+
+@media (max-height:560px) {
+    .chat-box{
+        height: 350px !important;
+    }
+}
+
+
+@media (max-height:500px) {
+    .chat-box{
+        height: 300px !important;
+    }
+}
+
+@media (max-height:460px) {
+    .chat-box{
+        height: 250px !important;
+    }
+}
+
+
+@media (max-height:410px) {
+    .chat-box{
+        height: 200px !important;
+    }
+}
+
+
+ 
+
+
+
+
+.message-input::placeholder{
+    color: white;
+    font-family: Arial, sans-serif;
+    position:static !important;
+}
+
+.message-input {
+    bottom: 2px;
+    position: absolute;
+    padding: 15px;
+    border-radius: 30px;
+    width: 700px ;
+    box-sizing: border-box;
+    border: 0px;
+    height: 46px;
+    outline: none; /* Removes focus glow effect */
+    background-color: #292623;
+    font-size: 18px;
+    font-weight: 200 !important;
+    color: white;
+    outline: none;
+    align-items: center !important;
+    resize: none; /* Prevent resizing */
+    font-family: Arial, sans-serif;
+    padding-right: 80px;
+}
+.message-input p{
+
+    word-wrap: break-word; /* Allow text to break */
+    overflow-wrap: break-word; /* Allow text to wrap properly */
+}
+
+.chat-input {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    position: relative;
+    border-radius: 30px;
+    width: 720px;
+    box-sizing: border-box;
+    top: 10px;
+    border: 1px;
+    background-color: #292623;
+    padding: 10px;
+}
+
+.import-files{
+    position: relative;
+  
+    top:3px;
+    left: 92%;
+    cursor: pointer;
+}
+
+.chat-content{
+    overflow-y: scroll;
+    margin-left: auto  !important;
+    margin-right: auto  !important;
+    width:90%;
+    height: 90%;
+    background-color: #292623;
+    border-radius: 50px;
+    border:0px;
+}
+
+
+.send {
+
+  left: 91%;
+ /* Rotate by 45 degrees */
+    position: relative;
+    top: 3px;
+
+    cursor: pointer;
+    fill: white; /* Use a color that contrasts with #3a3732 */
+}
+
+.send svg{
+    transform: rotate(180deg);
+}
+.their-message {
+    overflow-wrap: break-word;
+    word-wrap: break-word; /* Ensure text wraps inside the message */
+    position: relative; /* Keep it absolutely positioned */
+   left: 5px;
+    display: flex; /* Use flex to align profile and text */
+    align-items: flex-start; /* Align items to the top */
+ margin-top: 10px;
+    margin-bottom: 10px !important; /* Vertical margin */
+    max-width: 400px; /* Limit width */
+    min-width: 100px; /* Minimum width */
+    padding: 10px; /* Padding inside the message bubble */
+    background-color: #3a3732;
+    border-radius: 50px;
+    box-sizing: border-box; /* Ensure padding doesn’t add to the width */
+    width: auto; /* Allow it to grow based on content */
+}
+
+.their-message p {
+    margin-left: 55px !important;
+    left: -5px !important;
+        position: relative; /* Keep relative positioning */
+        max-width: 210px; /* Set max width to 100% of parent */
+        word-wrap: break-word; /* Allow text to break */
+        overflow-wrap: break-word; /* Allow text to wrap properly */
+        margin: 0; /* Remove default margin */
+        padding: 7px 0; /* Padding within the paragraph */
+        color: white;
+        font-size: 16px;
+}
+
+.their-message-profile {
+    position: absolute; /* Use relative positioning */
+    top: 10px; /* Positioning */
+    left: 2px; /* Align to the right */
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-left: 10px; /* Space between profile pic and text */
+}
+
+.their-message-profile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure image covers entire circle */
+}
+
+
+
+
+
+
+.my-message {
+    overflow-wrap: break-word;
+    word-wrap: break-word; /* Ensure text wraps inside the message */
+ position: relative; /* Keep it absolutely positioned */
+    left: 50%; /* Position from the right */
+    display: flex; /* Use flex to align profile and text */
+    align-items: flex-start; /* Align items to the top */
+    margin: 10px 0 !important; /* Vertical margin */
+    margin-bottom: 15px !important; /* Vertical margin */
+    max-width: 400px; /* Limit width */
+    min-width: 100px; /* Minimum width */
+    padding: 10px; /* Padding inside the message bubble */
+    background-color: #532b99;
+    border-radius: 50px;
+    box-sizing: border-box; /* Ensure padding doesn’t add to the width */
+    width: auto; /* Allow it to grow based on content */
+}
+
+.my-message p {
+    right: -28px !important;
+    position: relative; /* Keep relative positioning */
+    max-width: 250px; /* Set max width to 100% of parent */
+    word-wrap: break-word; /* Allow text to break */
+    overflow-wrap: break-word; /* Allow text to wrap properly */
+    margin: 0; /* Remove default margin */
+    padding: 7px 0; /* Padding within the paragraph */
+    color: white;
+   font-size: 16px;
+    
+}
+
+.my-message-profile {
+    position: absolute; /* Use relative positioning */
+    top: 10px; /* Positioning */
+    right: 15px; /* Align to the right */
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-left: 10px; /* Space between profile pic and text */
+}
+
+.my-message-profile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure image covers entire circle */
+}
+
+
+
+
+.chat-close {
+    position: absolute;
+    top: 100px;
+    right: 50px;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+/* CSS to style and hide the delete icon by default */
+.delete-my-message {
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    top:-17px;
+    right: 30px;
+}
+
+/* Show delete icon on hover */
+.my-message:hover .delete-my-message {
+    display: inline-block;
+}
+ 
+.edit-my-message{
+
+    cursor: pointer;
+    position: absolute;
+    top:-17px;
+    right: 50px;
+
+}
+
+.down-line{
+    z-index: 10;
+bottom: -20px;
+    background-color: white;
+
+    position: absolute;
+width: 100%;
+height:1px;
+
+}
+.unread-counter {
+    display: none; /* Hidden by default */
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 
+    9px  9px;
+    position: absolute;
+font-size: 12px;
+    top: -5px;
+    right: 0;
+}
+
+.unread-counter.show {
+    display: inline-block; /* Show when unread messages are present */
+}
+
+
+
+
+
+.my-message, .their-message {
+    display: flex;
+    flex-direction: column;
+
+    padding: 10px;
+    position: relative;
+    max-width: 300px;
+    border-radius: 50px;
+
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    margin: 10px 0;
+}
+
+div .file-icon {
+    font-size: 50px;
+    margin: -10px auto;
+}
+
+div .file-details {
+    color: white;
+    margin-top: 5px;
+    width: 100%;
+    word-wrap: break-word;
+    position: relative;
+}
+div .action-btn {
+    text-align: center;
+    font-size: 15px;
+    min-width: 110px;
+    max-width: 110px;
+    left: 80px;
+position: relative;
+    background-color: #dfdac8;
+    color: black;
+    padding: 5px 0px;
+    border-radius: 30px;
+    margin: 5px 5px;
+    border: 0px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  
+ 
+      margin-right: auto;
+       
+      
+}
+ 
+
+.group-modal {
+    display: none; /* Initially hidden */
+    position: fixed;
+    z-index: 10002;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Transparent black overlay */
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .group-modal-content {
+    color:white;
+    width: 300px;
+    padding: 20px;
+    background-color: #3a3732; /* Modal background color */
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  
+
+
+  .group-modal-content h3,h2{
+    font-size: 19px;
+  }
+
+  .group-modal-content h2{
+    position: relative;
+    top: -15px;
+  }
+
+  .group-modal-content h3{
+    position: relative;
+    top: 5px;
+  }
+
+
+
+  .hidden {
+    display: none;
+  }
+  
+  .group-button {
+    cursor: pointer;
+  }
+
+  .group-search-input{
+border: 0px;
+  border-radius: 40px;
+  padding: 10px;
+  width: 250px;
+    border: 0px !important;
+    background-color: #292623;
+    font-size: 16px;
+    font-weight: 200 !important;
+    color: white;
+    margin-left: auto  !important;
+    margin-right: auto  !important;
+    position: relative;
+    top: -20px;
+
+    outline: none; /* Removes focus glow effect */
+}
+
+
+.group-search-input::-webkit-search-cancel-button {
+    display: none;}
+
+
+ .group-button{
+    border-radius: 30px;
+    border: 0px;
+    font-weight: 700;
+    color: black;
+    font-size: 13px;
+    padding: 5px;
+    width:100px
+ }
+
+.groupNameInput{
+ border: 0px;
+  border-radius: 40px;
+  padding: 10px;
+  width: 250px;
+    border: 0px !important;
+    background-color: #292623;
+    font-size: 16px;    
+    font-weight: 200 !important;
+    color: white;
+    margin-top: 40px;
+    margin-left: auto  !important;
+    margin-right: auto  !important;
+    position: relative;
+
+
+    outline: none; /* Removes focus glow effect */}
+
+
+    .group-search-results{
+        border: 5px solid #292623;
+        display: none;
+     height: 90px ;
+        background-color: #292623;
+        border-radius: 40px;
+        padding: 10px;
+        width: 290px;
+        max-height: 0;
+        overflow-y: auto;
+        transition: max-height 0.3s ease;
+        margin-bottom: -15px ;
+        margin-left: -5px;
+        margin-top: -5px ;
+    }
+
+    .selected-users {
+        background-color: #292623;
+        border-radius: 40px;
+        padding: 10px;
+        width: 290px;
+        display: flex;
+        border: 5px solid #292623;
+        display: none;
+     height: 90px ;
+        margin-left: -5px;
+        flex-wrap: wrap; /* Allows multiple selected users to wrap */
+        overflow-y: auto; /* Enable scrolling if content exceeds container size */
+        margin-bottom: 5px;
+   
+    }
+    
+
+    .group-buttons {
+    margin-top: 15px;
+}
+
+.group-modal .group-buttons {
+position: relative;
+left: -20%;
+}
+
+ 
+
+
+    #selected-users {
+        display: none;
+    }
+    
+    
+
+#cancelGroupButton{
+    margin-right: 5px;
+}
+
+#makeGroupButton{
+    margin-left: 5px;
+}
+     
+
+
+
+
+
+ 
+
+
+
+      .group-slecting-users .down-line{
+        margin-left: -10px;
+      }
+
+
+.group-pic{
+    margin-right: 20px;
+}
+
+.chat-settings-modal {
+    z-index: 99999; /* Very high value */
+ position:absolute;
+ cursor:pointer;
+ margin-top: 20px;
+right: 10px;
+}
+
+
+/* Modal container - hidden by default */
+.chat-settings-modal-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+    z-index: 9999; /* Above all other elements */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Modal content styling */
+.modal-content {
+    color: white;
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    background-color: #3a3732; /* Modal background color */
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Go back button styling */
+.go-back {
+    display: inline-block;
+    margin-bottom: 15px;
+position: relative ;
+left:-145px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.current-chat-profile {
+    top: -30px;
+    margin-left: auto ;
+    margin-right: auto ;
+position: relative;
+width: 85px;
+height: 85px;
+border-radius: 50%;
+overflow: hidden;
+}
+.current-chat-name{
+position: relative;
+top:-17px;
+font-size: 18px;
+font-weight: 700;
+} 
+
+
+.current-chat-role{
+
+    font-weight: 100;
+    } 
+.current-chat-profile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .group-icon-pic{
+    position: relative;
+top: -70px;
+
+  }
+
+
+  .current-group-name{
+    position: relative;
+    top:-80px;
+    font-size: 18px;
+    font-weight: 700;
+    } 
+
+    .group-users-container{
+        background-color: #292623;
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        top:-50px;
+        border-radius: 40px;
+        padding: 10px;
+        width: 280px;
+       height: 120px;
+        overflow-y: auto;
+        transition: max-height 0.3s ease;
+    }
+
+    .group-user-pfp{
+        margin-left: auto;
+        margin-right: auto; 
+        left: 0px !important;
+        margin-top: 17px !important;
+        margin-bottom: 17px !important; 
+    }
+
+    .leave-group{
+        border-radius: 30px;
+        border: 0px;
+        font-weight: 700;
+        font-size: 13px;
+        padding: 5px;
+        width:100px;
+        cursor: pointer;
+        margin-left: 5px;
+    }
+
+    .add-users{
+        border-radius: 30px;
+        border: 0px;
+        font-weight: 700;
+        font-size: 13px;
+        padding: 5px;
+        width:100px;
+        cursor: pointer;
+        margin-right: 5px;
+    }
+
+/* Style for modal background fade */
+body.modal-open {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.add-user-container {
+    top:50%;
+    bottom:50%;
+    left:50%;
+    right:50%;
+    position: absolute;
+    
+    transform: translate(-50%, -50%);
+    border-radius: 8px;
+    z-index: 99999;
+    color: white;
+    height: 450px;
+    padding: 20px;
+    width: 350px;
+    text-align: center;
+    background-color: #3a3732; /* Modal background color */
+    border-radius: 30px;
+    box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.5);
+
+}
+
+/* Hide modal initially */
+
+
+/* Faded background when modal is open */
+
+.action-btn
+.add-user-search-input{
+    border: 0px;
+  border-radius: 40px;
+  padding: 10px;
+  width: 250px;
+    border: 0px !important;
+    background-color: #292623;
+    font-size: 15px;
+    font-weight: 200 !important;
+    color: white;
+   
+    margin-left: auto  !important;
+    margin-right: auto  !important;
+    margin-bottom: 10px;
+    position: relative;
+    top: -5px;
+
+    outline: none; /* Removes focus glow effect */
+}
+
+
+.confirm-add-user{
+    border-radius: 30px;
+    border: 0px;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 5px;
+    width:100px;
+    margin-right: 5px;
+}
+
+.cancel{
+    border-radius: 30px;
+    border: 0px;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 5px;
+    width:100px;
+    margin-left: 5px;
+}
+
+.selected-added-users{
+    background-color: #292623;
+    border-radius: 40px;
+    padding: 10px;
+    width: 290px;
+    border: 5px solid #292623;
+    display: none;
+ height: 90px ;
+    margin-left: auto;
+    margin-right: auto;
+    flex-wrap: wrap; /* Allows multiple selected users to wrap */
+    overflow-y: auto; /* Enable scrolling if content exceeds container size */
+    margin-bottom: 15px;
+}
+
+.searched-add-users{
+    border: 5px solid #292623;
+    display: none;
+ height: 90px ;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #292623;
+    border-radius: 40px;
+    padding: 10px;
+    width: 290px;
+    max-height: 0;
+    overflow-y: auto;
+    transition: max-height 0.3s ease;
+}
+
+.group-slecting-users, .selected-user-item{
+    margin-left: auto;
+        margin-right: auto; 
+        left: 0px !important;
+        margin-top: 5px !important;
+        margin-bottom: 15px !important; 
+}
+
+.search-user-item{
+
+    margin-left: auto;
+    margin-right: auto; 
+    left: 0px !important;
+    margin-top: 5px !important;
+    margin-bottom: 15px !important; 
+}
+
+.confirm-add-user{
+    cursor: pointer;
+}
+
+
+@media (max-width: 1100px) {
+   .chat-box{
+    width:600px;
+   }
+   .chat-input{
+    width:620px
+   }
+   .message-input{
+    width:500px
+   }
+
+
+.my-message{
+    left: 45%;
+}
+
+
+.their-message{
+    left: 10px;
+}
+
+
+   .chat{
+    width:70%
+}
+
+
+.setting-modal {
+                                                             
+ 
+    width: 627px;
+    
+
+
+}}
+
+
+
+@media (max-width: 1050px) {
+    .chat-box{
+     width:500px;
+    }
+    .chat-input{
+     width:520px
+    }
+    .message-input{
+     width:500px
+    }
+
+ 
+ .my-message{
+     left: 35%;
+ }
+ 
+ 
+ .their-message{
+     left: 15px;
+ }
+ 
+ 
+    .chat{
+     width:70%
+ }
+ 
+ 
+ .setting-modal {
+                                                              
+  
+     width: 527px;
+     
+ 
+ 
+ }}
+
+
+
+@media (max-width: 950px) {
+    .chat-box{
+     width:400px;
+    }
+    .chat-input{
+     width:420px
+    }
+    .message-input{
+     width:400px
+    }
+ 
+.import-files{
+    position: relative;
+  
+    top:3px;
+    left: 89%;
+    cursor: pointer;
+}
+
+div .action-btn {
+    margin-left: -35px;
+}
+
+.send {
+
+    left: 89%;
+   /* Rotate by 45 degrees */
+      position: relative;
+      top: 3px;
+  
+      cursor: pointer;
+      fill: white; /* Use a color that contrasts with #3a3732 */
+  }
+ 
+ .my-message{
+     left: 30%;
+     max-width: 250px; /* Limit width */
+ 
+ }
+ 
+  
+ .my-message p{
+    max-width: 200px; /* Set max width to 100% of parent */
+    word-wrap: break-word; /* Allow text to break */
+    overflow-wrap: break-word;
+}
+
+.their-message p{
+    max-width: 180px; /* Set max width to 100% of parent */
+    word-wrap: break-word; /* Allow text to break */
+    overflow-wrap: break-word;
+}
+ 
+ .their-message{
+     left: 15px;
+
+     max-width: 270px; /* Limit width */
+     min-width: 100px;
+ }
+ 
+    .chat{
+     width:70%
+ }
+  
+ .setting-modal {
+     width: 427px;
+     }}
+
+@media (max-width: 820px) {
+    .chat-box{
+     width:300px;
+    }
+    .chat-input{
+     width:320px
+    }
+    .message-input{
+     width:300px
+   } 
+    .my-message{
+     left: 15%;
+     max-width: 230px; /* Limit width */
+
+ }
+
+ div .action-btn {
+    margin-left: -45px;
+}
+
+ .send {
+
+    left: 86%;
+ 
+  }
+
+  .import-files {
+
+    left: 86%;
+ 
+  }
+
+
+
+    .my-message p{
+    max-width: 180px; /* Set max width to 100% of parent */
+    word-wrap: break-word; /* Allow text to break */
+    overflow-wrap: break-word;
+}
+    .their-message p{
+    max-width: 160px; /* Set max width to 100% of parent */
+    word-wrap: break-word; /* Allow text to break */
+    overflow-wrap: break-word;
+}
+    .their-message{
+     left: 10px;
+     max-width: 250px; /* Limit width */
+
+ }
+    .chat{
+     width:70%
+ }
+
+ 
+    .setting-modal {
+     width: 327px;
+ }}
+
+ 
+
+ @media (max-width: 700px) {
+.import-files{
+    left: 89%;
+}
+
+.page-close{
+    display: none;
+ }
+.send{
+    left: 89%;
+}
+
+ }
+
+
+ .user-profile {
+     margin-left: 15px;
+margin-top:20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-profile-pic {
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+}
+
+.profile-picture {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user-name {
+    font-size: 18px;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#group-icon {
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+
+.group-profile {
+    margin-left: 15px;
+    margin-top:20px;
+display:flex;
+  
+    align-items: center;
+    gap: 10px;
+}
+
+
+
+.user-profile-picture {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.group-name {
+    font-size: 18px;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#group-icon {
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+
+@media (max-width: 700px) {
+
+.group-profile{
+    margin-top: -22px;
+}
+
+.user-profile{
+    margin-top: -22px;
+
+}
+
+
+
+div .action-btn {
+    margin-left: -10px;
+}
+    .chat-box{
+     width:430px;
+    }
+    .chat-input{
+     width:450px
+    }
+    .message-input{
+     width:430px
+   } 
+    .my-message{
+ right: 0;
+     margin-left: 10px !important;
+     max-width: 300px; /* Limit width */
+
+ }
+    .my-message p{
+    max-width: 230px; /* Set max width to 100% of parent */
+    word-wrap: break-word; /* Allow text to break */
+    overflow-wrap: break-word;
+}
+    .their-message p{
+    max-width: 210px; /* Set max width to 100% of parent */
+    word-wrap: break-word; /* Allow text to break */
+    overflow-wrap: break-word;
+}
+    .their-message{
+     left: 10px;
+     max-width: 320px; /* Limit width */
+   
+ }
+  
+    .setting-modal {
+     width: 427px;
+ }}
+
+
+ @media (max-width: 450px) {
+    .chat-box{
+     width:100%;
+position: relative;
+left: -20px;
+    }
+
+
+    .import-files{
+        left: 85%;
+    }
+
+    .send{
+        left: 85%;
+    }
+
+    .chat-input{
+     width:350px
+    }
+    .message-input{
+     width:330px
+   } 
+.my-message{
+    max-width: 270px !important; /* Limit width */
+    left: 16% !important; /* Position from the right */
+}
+    .my-message p{
+    max-width: 215px !important; /* Set max width to 100% of parent */
+    word-wrap: break-word; /* Allow text to break */
+    overflow-wrap: break-word;
+}
+    .their-message p{
+    max-width: 190px !important; /* Set max width to 100% of parent */
+    word-wrap: break-word; /* Allow text to break */
+    overflow-wrap: break-word;
+}
+    .their-message{
+     left: 10px;
+     max-width: 280px !important;
+
+ }
+ div .action-btn {
+    margin-left: -45px;
+}
+    .setting-modal {
+        width: 100%;
+ }}
+
+
+@media (max-width: 500px) {
+    .chat-box{
+     width:100%;
+position: relative;
+left: -20px;
+    }
+
+
+    .import-files{
+        left: 85%;
+    }
+
+    .send{
+        left: 85%;
+    }
+
+    .chat-input{
+     width:350px
+    }
+    .message-input{
+     width:330px
+   } 
+.my-message{
+    max-width: 275px; /* Limit width */
+    left: 22%; /* Position from the right */
+}
+    .my-message p{
+    max-width: 220px; /* Set max width to 100% of parent */
+    word-wrap: break-word; /* Allow text to break */
+    overflow-wrap: break-word;
+}
+    .their-message p{
+    max-width: 220px; /* Set max width to 100% of parent */
+    word-wrap: break-word; /* Allow text to break */
+    overflow-wrap: break-word;
+}
+    .their-message{
+     left: 10px;
+
+
+ }
+ div .action-btn {
+    margin-left: -45px;
+}
+    .setting-modal {
+        width: 100%;
+ }}
+
+
+
+@media (max-width: 410px) {
+    .chat-box{
+        width: 100%;
+   position: relative;
+   left: -20px !important;
+       }
+
+
+    .chat-input {
+left: -1% ;}
+
+    .import-files{
+        left: 83%;
+    }
+
+    .send{
+        left: 83%;
+    }
+
+    .chat-input{
+        width:100% !important;
+    }
+    .message-input{
+     width:90% !important;
+     padding-right: 50px;
+   } 
+    .my-message{
+
+ left:12% !important;
+     max-width: 230px; /* Limit width */
+ 
+ }
+    .my-message p{
+    max-width: 180px; /* Set max width to 100% of parent */
+    word-wrap: break-word; /* Allow text to break */
+    overflow-wrap: break-word;
+}
+    .their-message p{
+    max-width: 160px; /* Set max width to 100% of parent */
+    word-wrap: break-word; /* Allow text to break */
+    overflow-wrap: break-word;
+}
+    .their-message{
+     left: 5px;
+     max-width: 250px; /* Limit width */
+     min-width: 100px;
+ }
+  
+    .setting-modal {
+     width: 100%;
+ }}
+
+
+ @media (max-width: 400px) {
+    .chat-box{
+        width: 100%;
+   position: relative;
+   left: -20px !important;
+       }
+
+
+    .chat-input {
+left: -1% ;}
+
+    .import-files{
+        left: 83%;
+    }
+
+    .send{
+        left: 83%;
+    }
+
+    .chat-input{
+     width:270px
+    }
+    .message-input{
+     width:270px
+   } 
+    .my-message{
+
+ left:8% !important;
+     max-width: 230px; /* Limit width */
+ 
+ }
+    .my-message p{
+    max-width: 180px; /* Set max width to 100% of parent */
+    word-wrap: break-word; /* Allow text to break */
+    overflow-wrap: break-word;
+}
+    .their-message p{
+    max-width: 160px; /* Set max width to 100% of parent */
+    word-wrap: break-word; /* Allow text to break */
+    overflow-wrap: break-word;
+}
+    .their-message{
+     left: 5px;
+     max-width: 250px; /* Limit width */
+     min-width: 100px;
+ }
+  
+    .setting-modal {
+     width: 100%;
+ }}
+
+ @media (max-width: 380px) {
+    .chat-box{
+        width: 100%;
+   position: relative;
+   left: -20px !important;
+       }
+
+
+    .chat-input {
+left: -1% ;}
+
+    .import-files{
+        left: 83%;
+    }
+
+    .send{
+        left: 83%;
+    }
+
+    .chat-input{
+     width:270px
+    }
+    .message-input{
+     width:270px
+   } 
+    .my-message{
+
+ left:3% !important;
+     max-width: 230px; /* Limit width */
+ 
+ }
+    .my-message p{
+    max-width: 180px; /* Set max width to 100% of parent */
+    word-wrap: break-word; /* Allow text to break */
+    overflow-wrap: break-word;
+}
+    .their-message p{
+    max-width: 160px; /* Set max width to 100% of parent */
+    word-wrap: break-word; /* Allow text to break */
+    overflow-wrap: break-word;
+}
+    .their-message{
+     left: 5px;
+     max-width: 250px; /* Limit width */
+     min-width: 100px;
+ }
+  
+    .setting-modal {
+     width: 100%;
+ }}
+
+ @media (max-width: 360px) {
+    .chat-box{
+        width: 100%;
+   position: relative;
+   left: -20px !important;
+       }
+
+
+    .chat-input {
+left: -1% ;}
+
+    .import-files{
+        left: 83%;
+    }
+
+    .send{
+        left: 83%;
+    }
+
+    .chat-input{
+     width:270px
+    }
+    .message-input{
+     width:270px
+   } 
+    .my-message{
+
+ left:7% !important;
+     max-width: 235px !important; /* Limit width */
+ 
+ }
+    .my-message p{
+    max-width: 180px !important; /* Set max width to 100% of parent */
+    word-wrap: break-word; /* Allow text to break */
+    overflow-wrap: break-word;
+}
+    .their-message p{
+    max-width: 155px!important; /* Set max width to 100% of parent */
+    word-wrap: break-word; /* Allow text to break */
+    overflow-wrap: break-word;
+}
+    .their-message{
+     left: 5px;
+     max-width: 240px!important; /* Limit width */
+     min-width: 100px;
+ }
+  
+    .setting-modal {
+     width: 100%;
+ }}
+
+ @media (max-width: 340px) {
+    .chat-box{
+        width: 100%;
+   position: relative;
+   left: -20px !important;
+       }
+
+
+    .chat-input {
+left: -1% ;}
+
+    .import-files{
+        left: 83%;
+    }
+
+    .send{
+        left: 83%;
+    }
+
+    .chat-input{
+     width:270px
+    }
+    .message-input{
+     width:270px
+   } 
+    .my-message{
+
+ left:4% !important;
+     max-width: 235px !important; /* Limit width */
+ 
+ }
+    .my-message p{
+    max-width: 180px !important; /* Set max width to 100% of parent */
+    word-wrap: break-word; /* Allow text to break */
+    overflow-wrap: break-word;
+}
+    .their-message p{
+    max-width: 155px!important; /* Set max width to 100% of parent */
+    word-wrap: break-word; /* Allow text to break */
+    overflow-wrap: break-word;
+}
+    .their-message{
+     left: 0px;
+     max-width: 240px!important; /* Limit width */
+     min-width: 100px;
+ }
+  
+    .setting-modal {
+     width: 100%;
+ }}
+
+ @media (max-width: 330px) {
+    .chat-box{
+        width: 100%;
+   position: relative;
+   left: -20px !important;
+       }
+
+
+    .chat-input {
+left: -1% ;}
+
+    .import-files{
+        left: 83%;
+    }
+
+    .send{
+        left: 83%;
+    }
+
+    .chat-input{
+     width:270px
+    }
+    .message-input{
+     width:270px
+   } 
+    .my-message{
+
+ left:2% !important;
+     max-width: 235px !important; /* Limit width */
+ 
+ }
+    .my-message p{
+    max-width: 180px !important; /* Set max width to 100% of parent */
+    word-wrap: break-word; /* Allow text to break */
+    overflow-wrap: break-word;
+}
+    .their-message p{
+    max-width: 155px!important; /* Set max width to 100% of parent */
+    word-wrap: break-word; /* Allow text to break */
+    overflow-wrap: break-word;
+}
+    .their-message{
+     left: -5px;
+     max-width: 240px!important; /* Limit width */
+     min-width: 100px;
+ }
+  
+    .setting-modal {
+     width: 100%;
+ }}
+
+
+ @media (max-width: 320px) {
+    .chat-box{
+        width: 100%;
+   position: relative;
+   left: -20px !important;
+       }
+
+
+    .chat-input {
+left: -1% ;}
+
+    .import-files{
+        left: 83%;
+    }
+
+    .send{
+        left: 83%;
+    }
+
+    .chat-input{
+     width:270px
+    }
+    .message-input{
+     width:270px
+   } 
+    .my-message{
+
+ left:-3% !important;
+     max-width: 235px !important; /* Limit width */
+ 
+ }
+    .my-message p{
+    max-width: 180px !important; /* Set max width to 100% of parent */
+    word-wrap: break-word; /* Allow text to break */
+    overflow-wrap: break-word;
+}
+    .their-message p{
+    max-width: 155px!important; /* Set max width to 100% of parent */
+    word-wrap: break-word; /* Allow text to break */
+    overflow-wrap: break-word;
+}
+    .their-message{
+     left: -7px;
+     max-width: 240px!important; /* Limit width */
+     min-width: 100px;
+ }
+  
+    .setting-modal {
+     width: 100%;
+ }}
+
+/* The switch - the box around the slider */
+.theme-toggle {
+    cursor: pointer !important;
+    top:20px;
+    left:20px;
+    position: absolute;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .theme-toggle input {
+    cursor: pointer !important;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .theme-toggle .slider {
+    position: absolute;
+    cursor: pointer !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+  
+  .theme-toggle .slider:before {
+    cursor: pointer !important;
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: #292623;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+  
+  #theme-switch:checked + .slider {
+    cursor: pointer !important;
+    background-color: #292629;
+  }
+  
+  #theme-switch:focus + .slider {
+    cursor: pointer !important;
+    box-shadow: 0 0 1px #292629;
+  }
+  
+  #theme-switch:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    cursor: pointer !important;
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+    background-color: #ccc; /* Change circle color to #ccc */
+  
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    cursor: pointer !important;
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    cursor: pointer !important;
+    border-radius: 50%;
+  }
+
+
+
+
+  .loader-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000; /* Ensure it appears above all content */
+}
+
+.loader {
+    top:35%;
+    position: relative;;
+    margin: auto;
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid goldenrod; /* Blue */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+
+
+
+.yet-load {
+
+    top:35%;
+    position: relative;
+    text-align: center;
+    color: white;
+    margin-top: 15px;
+    display: none; /* Hidden initially */
+}
+
+.Reload-page {
+    top:35%;
+    color: white;
+    font-size: 17px;
+    font-weight: 600;
+    margin-top: 10px;
+    height: 22px;
+    width: 110px;
+    background-color: white;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 10px;
+    text-decoration: none;
+    display: none; /* Hidden initially */
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    color: black;
+}
+
+.Reload-page:hover {
+    color: lightgray;
+}

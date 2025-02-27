@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="messages.css">
+    <title>Messaging</title>
+</head>
+<body>
+  <div class="loader-overlay" style="display: none;">
+    <div class="loader"></div>
+  
+</div>
+
+    <div class="sidebar">
+      <span class="page-close1">&times;</span>
+       <div class="sidebar-tools">
+        <label class="theme-toggle">
+                  
+          <input type="checkbox" id="theme-switch">
+          <span class="slider round"></span>
+      </label><span class="group-button" id="openGroupModalButton"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M500-482q29-32 44.5-73t15.5-85q0-44-15.5-85T500-798q60 8 100 53t40 105q0 60-40 105t-100 53Zm220 322v-120q0-36-16-68.5T662-406q51 18 94.5 46.5T800-280v120h-80Zm80-280v-80h-80v-80h80v-80h80v80h80v80h-80v80h-80Zm-480-40q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM0-160v-112q0-34 17.5-62.5T64-378q62-31 126-46.5T320-440q66 0 130 15.5T576-378q29 15 46.5 43.5T640-272v112H0Zm320-400q33 0 56.5-23.5T400-640q0-33-23.5-56.5T320-720q-33 0-56.5 23.5T240-640q0 33 23.5 56.5T320-560ZM80-240h480v-32q0-11-5.5-20T540-306q-54-27-109-40.5T320-360q-56 0-111 13.5T100-306q-9 5-14.5 14T80-272v32Zm240-400Zm0 400Z"/></svg></span>
+</div>
+<div class="search">
+  <input type="search" class="search-bar" placeholder="Search for users...">
+
+</div>
+<div class="search-result-container" hidden>
+  <div id="search-result" class="search-result"></div>
+</div>
+
+<div id="groupModal" class="group-modal hidden">
+  <div class="group-modal-content">
+    <h2>Create Group</h2>
+    <div class="group-search-container">
+    <input
+      type="text"
+      class="group-search-input"
+      id="group-search-input"
+      placeholder="Search users..." 
+    />
+    <div  class="group-search-results" id="group-search-results">
+      <!-- Search results will populate here -->
+    </div>
+  </div>
+
+  <h3>Selected Users</h3>
+    <div  class="selected-users" id="selected-users">
+
+      <!-- Pinned users will appear here -->
+    </div>
+    <input
+      type="text"
+      id="groupNameInput"
+      class="groupNameInput"
+      placeholder="Name your group..." max="18"
+
+    />
+    <div class="group-buttons">
+    <button class="group-button" id="cancelGroupButton">Cancel</button>
+    <button class="group-button"  id="makeGroupButton">Create Group</button>
+  </div>
+  </div>
+</div>
+<h1 class="nothing">START A <br>DISCUSSION </h1>
+    <h2 class="inbox">Inbox</h2>
+        <div class="user-messaging-list">
+
+        </div>
+        
+</div>
+
+    <!-- Group Creation Modal -->
+
+    <div class="chat">
+        
+     
+        <span class="go-back-inbox"><svg xmlns="http://www.w3.org/2000/svg" height="27px" viewBox="0 -960 960 960" width="27px" fill="white"><path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z"/></svg></span>
+        <span class="page-close">&times;</span>
+        <div class="chat-container">
+          <div class="group" hidden > 
+          <div class="group-profile" id="group-profile">
+            
+             <svg xmlns="http://www.w3.org/2000/svg" height="27px"    viewBox="0 -960 960 960" width="27px" fill="#e8eaed">
+              <path d="M411-480q-28 0-46-21t-13-49l12-72q8-43 40.5-70.5T480-720q44 0 76.5 27.5T597-622l12 72q5 28-13 49t-46 21H411Zm24-80h91l-8-49q-2-14-13-22.5t-25-8.5q-14 0-24.5 8.5T443-609l-8 49ZM124-441q-23 1-39.5-9T63-481q-2-9-1-18t5-17q0 1-1-4-2-2-10-24-2-12 3-23t13-19l2-2q2-19 15.5-32t33.5-13q3 0 19 4l3-1q5-5 13-7.5t17-2.5q11 0 19.5 3.5T208-626q1 0 1.5.5t1.5.5q14 1 24.5 8.5T251-596q2 7 1.5 13.5T250-570q0 1 1 4 7 7 11 15.5t4 17.5q0 4-6 21-1 2 0 4l2 16q0 21-17.5 36T202-441h-78Zm676 1q-33 0-56.5-23.5T720-520q0-12 3.5-22.5T733-563l-28-25q-10-8-3.5-20t18.5-12h80q33 0 56.5 23.5T880-540v20q0 33-23.5 56.5T800-440ZM0-240v-63q0-44 44.5-70.5T160-400q13 0 25 .5t23 2.5q-14 20-21 43t-7 49v65H0Zm240 0v-65q0-65 66.5-105T480-450q108 0 174 40t66 105v65H240Zm560-160q72 0 116 26.5t44 70.5v63H780v-65q0-26-6.5-49T754-397q11-2 22.5-2.5t23.5-.5Zm-320 30q-57 0-102 15t-53 35h311q-9-20-53.5-35T480-370Zm0 50Zm1-280Z"/>
+          </svg>
+
+
+              <div class="group-name">...</div>
+           
+            
+        </div>
+</div>
+
+
+<div class="user" hidden> 
+          <div class="user-profile" id="user-profile" >
+            
+            <div   id="user-profile-pic" class="user-profile-pic">
+          
+                <img id="user-profile-picture" src="user_profile_-removebg-preview.png" alt="Profile Picture" class="user-profile-picture">
+             
+            </div>
+            <h2 class="user-name">...</h2>
+            </div>
+        </div>
+        
+        
+        
+          <div class="setting-modal">  
+          <span class="chat-settings-modal">
+            <svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px" fill="white">
+                <path d="M480-160q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm0-240q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm0-240q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Z"/>
+            </svg>
+        </span></div>
+        
+        <div class="chat-settings-modal-container">
+          <div class="modal-content">
+              <span class="go-back">
+<svg xmlns="http://www.w3.org/2000/svg" height="29px" viewBox="0 -960 960 960" width="29px" fill="white">
+                      <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z" />
+                  </svg>
+              </span>
+              <div class="current-group-profile" hidden>
+              <span class="group-icon-pic" >
+                <svg xmlns="http://www.w3.org/2000/svg" height="80px" viewBox="0 -960 960 960" width="80px" fill="#e8eaed">
+                  <path d="M411-480q-28 0-46-21t-13-49l12-72q8-43 40.5-70.5T480-720q44 0 76.5 27.5T597-622l12 72q5 28-13 49t-46 21H411Zm24-80h91l-8-49q-2-14-13-22.5t-25-8.5q-14 0-24.5 8.5T443-609l-8 49ZM124-441q-23 1-39.5-9T63-481q-2-9-1-18t5-17q0 1-1-4-2-2-10-24-2-12 3-23t13-19l2-2q2-19 15.5-32t33.5-13q3 0 19 4l3-1q5-5 13-7.5t17-2.5q11 0 19.5 3.5T208-626q1 0 1.5.5t1.5.5q14 1 24.5 8.5T251-596q2 7 1.5 13.5T250-570q0 1 1 4 7 7 11 15.5t4 17.5q0 4-6 21-1 2 0 4l2 16q0 21-17.5 36T202-441h-78Zm676 1q-33 0-56.5-23.5T720-520q0-12 3.5-22.5T733-563l-28-25q-10-8-3.5-20t18.5-12h80q33 0 56.5 23.5T880-540v20q0 33-23.5 56.5T800-440ZM0-240v-63q0-44 44.5-70.5T160-400q13 0 25 .5t23 2.5q-14 20-21 43t-7 49v65H0Zm240 0v-65q0-65 66.5-105T480-450q108 0 174 40t66 105v65H240Zm560-160q72 0 116 26.5t44 70.5v63H780v-65q0-26-6.5-49T754-397q11-2 22.5-2.5t23.5-.5Zm-320 30q-57 0-102 15t-53 35h311q-9-20-53.5-35T480-370Zm0 50Zm1-280Z"/>
+                </svg>
+              </span>
+              <div class="current-group-name"></div>
+              <div class="group-users-container">
+
+              </div>
+              <div class="group-buttons">
+                <button class="add-users">Add Users</button>
+              <button class="leave-group">Leave Group</button>
+            
+              </div>
+              <div class="add-user-container hidden">
+                <div class="add-user-modal-overlay"></div>
+                <div class="add-user-modal-content">
+
+                  <h2>Add Users</h2>
+                  <input  class="add-user-search-input" placeholder="Search users..." />
+<div class="searched-add-users">
+
+</div>
+                  <h3>Added Users</h3>
+                  <div class="selected-added-users"></div>
+                  <div class="group-buttons">
+                    <button class="cancel" class="add-user-action-buttons">Cancel</button>
+                    <button class="confirm-add-user" class="add-user-action-buttons">Confirm</button>
+                  </div>
+                </div>
+              </div>
+              </div>
+              <div class="current-chat-profile">
+                  <img class="profile-picture" src="user_profile_-removebg-preview.png" alt="Profile Picture">
+              </div>
+              <div class="current-chat-name"></div>
+              <div class="current-chat-role"></div>
+          </div>
+      </div>
+      
+      
+        
+            <div class="chat-box"></div>
+           
+            <div class="chat-input">
+                <textarea type="text" class="message-input" id="message-input" placeholder="Max 500 characters..." maxlength="500" ></textarea>
+                <span class="send">
+                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="white">
+                    <path d="M120-160v-640l760 320-760 320Zm80-120 474-200-474-200v140l240 60-240 60v140Zm0 0v-400 400Z"/>
+                </svg>
+                </span>
+                </span>
+                <span class="import-files">
+                  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M720-330q0 104-73 177T470-80q-104 0-177-73t-73-177v-370q0-75 52.5-127.5T400-880q75 0 127.5 52.5T580-700v350q0 46-32 78t-78 32q-46 0-78-32t-32-78v-370h80v370q0 13 8.5 21.5T470-320q13 0 21.5-8.5T500-350v-350q-1-42-29.5-71T400-800q-42 0-71 29t-29 71v370q-1 71 49 120.5T470-160q70 0 119-49.5T640-330v-390h80v390Z"/></svg>
+                </span>
+                <input type="file" id="file-input" hidden />
+            </div>
+       
+    </div>
+    <script src="chat.js" type="module" defer></script>
+    <script type="module" src="fireMessage.js" defer></script>
+  
+
+ 
+</body>
+</html>
