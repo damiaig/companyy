@@ -19,7 +19,7 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 
 // Function to create a new user
-export const createUser = async (name, email, password, role) => {
+export const createUser = async (name, email, password, role, theme = "dark") => {
     try {
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
         const user = userCredential.user;
@@ -31,7 +31,7 @@ export const createUser = async (name, email, password, role) => {
             name: name,
             email: email,
             role: role,
-           
+            theme
         });
 
         return { success: true, message: "User created successfully!", };
