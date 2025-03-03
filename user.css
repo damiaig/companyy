@@ -76,12 +76,13 @@ header {
 }
 
 
+
 .text-profile {
   position: absolute;
- top: 20px;
-  right: 0px;
+ top: 30px;
+  right: -20px;
   height: 30px;
-  width: 180px;
+  width: 200px;
  
   color: white;
   text-align: left;
@@ -225,6 +226,20 @@ display: none;
   display: none !important;
 }
 
+.text-profile {
+  position: absolute;
+ top: 20px;
+  right: 0px;
+  height: 30px;
+  width: 180px;
+ 
+  color: white;
+  text-align: left;
+  word-wrap: break-word !important; /* Allow text to break */
+          overflow-wrap: break-word !important; /* Allow text to wrap properly */
+        
+}
+
 .close-menu{
   display: flex;
 }
@@ -233,6 +248,7 @@ display: none;
       display: flex; /* Ensure the hamburger is visible */
   }
 }
+
 
  
 
