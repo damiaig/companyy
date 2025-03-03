@@ -20,7 +20,7 @@ overflow-x: hidden;
 header {
   z-index: 1;
   width: 100%;
-  height: 120px;
+  height: 140px;
   background-color: #444444;
 }
 
@@ -38,16 +38,28 @@ header {
   position: relative;
   top: 0px;
   margin: auto;
-  width: 500px;
-  height: 120px;
- 
+  width: 300px;
+  height: 140px;
+ margin-left: auto;
+ margin-right:  auto;
   display: flex;
   align-items: center;
+
+}
+
+@media (max-width: 700px) {
+  .profile {
+    height: 120px !important;
+  }
+  header {
+    height: 120px !important;
+  }
+
 }
 
 .profile-pic {
   left: 10px;
-  position: relative;
+  position: absolute;
   width: 100px;
  
   height: 100px;
@@ -65,20 +77,26 @@ header {
 
 
 .text-profile {
-  position: relative;
-  top: 10px;
-  right: -20px;
+  position: absolute;
+ top: 20px;
+  right: 0px;
+  height: 30px;
+  width: 180px;
+ 
   color: white;
   text-align: left;
+  word-wrap: break-word !important; /* Allow text to break */
+          overflow-wrap: break-word !important; /* Allow text to wrap properly */
+        
 }
 
 .text-profile h1 {
-  font-size: 27.5px;
+  font-size: 25px;
 }
 
 .text-profile p {
   font-weight: 200;
-  margin-top: -25px;
+  margin-top: -20px;
   font-size: 14px;
 }
 .main {
@@ -87,6 +105,7 @@ header {
   justify-content: space-between;
   height: 120vh; /* Full height of the screen */
 }
+
 
 
 
@@ -197,6 +216,10 @@ display: none;
 @media (max-width: 700px) {
   .divaaa {
       display: none; /* Hidden by default */
+  }
+
+  .profile h1{
+    font-size: 22px;
   }
 .button-grid{
   display: none !important;
@@ -561,6 +584,7 @@ font-weight: 200;
    
 
 
+
 @media (max-width: 500px) {
 
   .profile h1{
@@ -581,24 +605,8 @@ font-weight: 200;
     font-weight: bold;
   }
 
-  .profile {
-    z-index: 1000;
-    position: relative;
+  
  
- 
-    margin: auto;
-    width: 390px;
-    height: 120px;
- 
-    display: flex;
-    align-items: center;
-  }
-
-.profile-pic{
- 
-  height:100px;
-  width:100px
-}
 .texter{
   position: absolute;
   top:10px;
@@ -652,17 +660,7 @@ font-weight: 200;
     top:-15px !important;
   }
 
-.profile {
-  z-index: 1000;
-  position: relative;
  
-  margin: auto;
-  width: 335px;
-  height: 120px;
-   
-  display: flex;
-  align-items: center;
-}
 }
 @media (max-width: 335px){
   .text-profile{
