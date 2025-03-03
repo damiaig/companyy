@@ -95,9 +95,12 @@ input, select {
     padding-left: 0px; /* Ensure input text has the same left padding as the placeholder */
 }
 
- 
+ input {
+  font-size: 20px !important; /* Prevents zooming */
+  padding-left: 10px;
+ }
 input, textarea {
-  font-size: 16px !important; /* Prevents zooming */
+  font-size: 18px !important; /* Prevents zooming */
 }
 
 html {
@@ -106,7 +109,7 @@ html {
 input::placeholder {
     font-weight: 300;
     color: #292623;
-    padding-left: 10px; /* Padding for placeholder */
+    padding-left: -30px !important; /* Padding for placeholder */
     font-size: 18px; /* Font size for placeholder */
 }
 
