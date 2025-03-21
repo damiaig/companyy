@@ -5,7 +5,7 @@ import { ref as dbRef, onValue } from "https://www.gstatic.com/firebasejs/9.16.0
 import { rtdb } from "./fireMessage.js"; // Make sure rtdb is initialized properly.
 // Initialize Firebase Storage
 const storage = getStorage();
-
+const profileSettingsBtn2 = document.querySelector(".employee-profile-settingss");
 // Get modal element and button
 const modal = document.getElementById("modal-employee-profile-setting");
 const profileSettingsBtn = document.querySelector(".employee-profile-settings");
@@ -91,6 +91,16 @@ if (!sessionStorage.getItem("userId")) {
 // Open modal
 if (profileSettingsBtn) {
     profileSettingsBtn.addEventListener("click", function () {
+        modal.style.display = "block";
+        document.body.style.overflow = "hidden"; // Disable background scrolling
+        modal.style.overflowY = "auto"; // Allow scrolling inside the modal
+        profilePreviewName.textContent = profileName.textContent;
+        profilePreviewPicture.src = profilePicture.src;
+    });
+}
+
+if (profileSettingsBtn2) {
+    profileSettingsBtn2.addEventListener("click", function () {
         modal.style.display = "block";
         document.body.style.overflow = "hidden"; // Disable background scrolling
         modal.style.overflowY = "auto"; // Allow scrolling inside the modal
